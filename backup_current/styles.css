@@ -2,32 +2,132 @@
    CSS 重置與基本樣式 (CSS Reset & Base Styles)
    =========================================== */
 
-/* CSS 變數定義 */
+/* CSS 變數定義 - 預設金色主題配色 */
 :root {
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --accent-color: #ffd700;
-    --text-color: #333;
-    --text-light: #666;
-    --bg-color: #f8f9fa;
-    --card-bg: #ffffff;
-    --border-color: #e9ecef;
-    --shadow: rgba(0, 0, 0, 0.08);
-    --shadow-hover: rgba(0, 0, 0, 0.12);
+    --primary-color: #daa520;        /* 主要金色 */
+    --secondary-color: #2c3e50;      /* 深藍色導航 */
+    --accent-color: #ffd700;         /* 亮金色強調 */
+    --text-color: #333;              /* 深灰色文字 */
+    --text-light: #666;              /* 淺灰色文字 */
+    --bg-color: #ffffff;             /* 純白背景 */
+    --card-bg: #ffffff;              /* 卡片白色背景 */
+    --border-color: #e9ecef;         /* 淺灰色邊框 */
+    --shadow: rgba(218, 165, 32, 0.15);  /* 金色陰影 */
+    --shadow-hover: rgba(218, 165, 32, 0.25);  /* 金色懸停陰影 */
+    --gradient-gold: linear-gradient(135deg, #daa520 0%, #ffd700 50%, #ffffff 100%);  /* 金色漸層 */
+    --gradient-blue: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);  /* 深藍漸層 */
 }
 
-/* 暗色主題變數 */
+/* 自然大地調主題 */
+[data-color-theme="earthy"] {
+    --primary-color: #8B4513;        /* 土棕色 */
+    --secondary-color: #556B2F;       /* 橄欖綠 */
+    --accent-color: #CD853F;          /* 赭石色 */
+    --text-color: #2F4F2F;           /* 深綠灰色 */
+    --text-light: #6B8E6B;           /* 淺綠灰色 */
+    --bg-color: #F5F5DC;             /* 米色背景 */
+    --card-bg: #FFF8DC;              /* 玉米絲色卡片 */
+    --border-color: #D2B48C;         /* 淺棕色邊框 */
+    --shadow: rgba(139, 69, 19, 0.15);
+    --shadow-hover: rgba(139, 69, 19, 0.25);
+    --gradient-gold: linear-gradient(135deg, #8B4513 0%, #CD853F 50%, #F5F5DC 100%);
+    --gradient-blue: linear-gradient(135deg, #556B2F 0%, #6B8E23 100%);
+}
+
+/* 溫暖中性色主題 */
+[data-color-theme="warm"] {
+    --primary-color: #A0522D;        /* 赭色 */
+    --secondary-color: #8B7355;       /* 暖棕色 */
+    --accent-color: #D2691E;          /* 巧克力色 */
+    --text-color: #3E2723;           /* 深棕色文字 */
+    --text-light: #8D6E63;           /* 淺棕色文字 */
+    --bg-color: #FFF8F0;             /* 象牙白背景 */
+    --card-bg: #FFFEF7;              /* 溫暖白色卡片 */
+    --border-color: #D7CCC8;         /* 淺棕色邊框 */
+    --shadow: rgba(160, 82, 45, 0.15);
+    --shadow-hover: rgba(160, 82, 45, 0.25);
+    --gradient-gold: linear-gradient(135deg, #A0522D 0%, #D2691E 50%, #FFF8F0 100%);
+    --gradient-blue: linear-gradient(135deg, #8B7355 0%, #A1887F 100%);
+}
+
+/* 乾淨白色主題 */
+[data-color-theme="clean"] {
+    --primary-color: #2C3E50;        /* 深藍灰色 */
+    --secondary-color: #34495E;       /* 深灰色 */
+    --accent-color: #E74C3C;          /* 鮮紅色點綴 */
+    --text-color: #2C3E50;           /* 深藍灰色文字 */
+    --text-light: #7F8C8D;           /* 中灰色文字 */
+    --bg-color: #FFFFFF;             /* 純白背景 */
+    --card-bg: #FFFFFF;              /* 純白卡片 */
+    --border-color: #ECF0F1;         /* 淺灰色邊框 */
+    --shadow: rgba(44, 62, 80, 0.1);
+    --shadow-hover: rgba(44, 62, 80, 0.2);
+    --gradient-gold: linear-gradient(135deg, #2C3E50 0%, #34495E 50%, #FFFFFF 100%);
+    --gradient-blue: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+}
+
+/* 柔和夢幻色主題 */
+[data-color-theme="soft"] {
+    --primary-color: #9B59B6;        /* 淡紫色 */
+    --secondary-color: #E91E63;       /* 粉色 */
+    --accent-color: #FF69B4;          /* 熱粉色 */
+    --text-color: #4A148C;           /* 深紫色文字 */
+    --text-light: #8E24AA;           /* 中紫色文字 */
+    --bg-color: #FCE4EC;             /* 淡粉色背景 */
+    --card-bg: #F8BBD9;              /* 淡粉色卡片 */
+    --border-color: #F8BBD9;         /* 淡粉色邊框 */
+    --shadow: rgba(155, 89, 182, 0.15);
+    --shadow-hover: rgba(155, 89, 182, 0.25);
+    --gradient-gold: linear-gradient(135deg, #9B59B6 0%, #E91E63 50%, #FCE4EC 100%);
+    --gradient-blue: linear-gradient(135deg, #9B59B6 0%, #E91E63 100%);
+}
+
+/* 鮮亮點綴色主題 */
+[data-color-theme="accent"] {
+    --primary-color: #E74C3C;        /* 鮮紅色 */
+    --secondary-color: #2C3E50;       /* 深藍色 */
+    --accent-color: #F39C12;          /* 橙色 */
+    --text-color: #2C3E50;           /* 深藍色文字 */
+    --text-light: #7F8C8D;           /* 中灰色文字 */
+    --bg-color: #FFFFFF;             /* 純白背景 */
+    --card-bg: #FFFFFF;              /* 純白卡片 */
+    --border-color: #E5E7EB;         /* 淺灰色邊框 */
+    --shadow: rgba(231, 76, 60, 0.15);
+    --shadow-hover: rgba(231, 76, 60, 0.25);
+    --gradient-gold: linear-gradient(135deg, #E74C3C 0%, #F39C12 50%, #FFFFFF 100%);
+    --gradient-blue: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+}
+
+/* 未來科技感主題 */
+[data-color-theme="futuristic"] {
+    --primary-color: #00D4FF;        /* 電光藍 */
+    --secondary-color: #1A1A2E;       /* 深藍黑 */
+    --accent-color: #FFD700;          /* 金色 */
+    --text-color: #E94560;           /* 霓虹粉文字 */
+    --text-light: #A8A8A8;           /* 銀灰色文字 */
+    --bg-color: #0F0F23;             /* 深藍黑背景 */
+    --card-bg: #16213E;              /* 深藍卡片 */
+    --border-color: #00D4FF;         /* 電光藍邊框 */
+    --shadow: rgba(0, 212, 255, 0.2);
+    --shadow-hover: rgba(0, 212, 255, 0.3);
+    --gradient-gold: linear-gradient(135deg, #00D4FF 0%, #FFD700 50%, #16213E 100%);
+    --gradient-blue: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+}
+
+/* 暗色主題變數 - 保持金色主題但調整亮度 */
 [data-theme="dark"] {
-    --primary-color: #8b9cff;
-    --secondary-color: #9b6bff;
-    --accent-color: #ffed4e;
-    --text-color: #e2e8f0;
-    --text-light: #a0aec0;
-    --bg-color: #1a202c;
-    --card-bg: #2d3748;
-    --border-color: #4a5568;
-    --shadow: rgba(0, 0, 0, 0.3);
-    --shadow-hover: rgba(0, 0, 0, 0.4);
+    --primary-color: #f4d03f;        /* 暗色模式下的亮金色 */
+    --secondary-color: #1a252f;      /* 更深的藍色 */
+    --accent-color: #ffed4e;         /* 亮金色強調 */
+    --text-color: #e2e8f0;           /* 淺色文字 */
+    --text-light: #a0aec0;           /* 淺灰色文字 */
+    --bg-color: #1a202c;             /* 深色背景 */
+    --card-bg: #2d3748;              /* 深色卡片背景 */
+    --border-color: #4a5568;         /* 深色邊框 */
+    --shadow: rgba(244, 208, 63, 0.2);  /* 金色陰影 */
+    --shadow-hover: rgba(244, 208, 63, 0.3);  /* 金色懸停陰影 */
+    --gradient-gold: linear-gradient(135deg, #f4d03f 0%, #ffed4e 50%, #2d3748 100%);  /* 暗色金色漸層 */
+    --gradient-blue: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);  /* 暗色藍漸層 */
 }
 
 /* 全域重置 */
@@ -122,15 +222,16 @@ html {
    =========================================== */
 
 .navbar {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: var(--gradient-blue);  /* 使用深藍色漸層 */
     padding: 1rem 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 20px var(--shadow);
+    box-shadow: 0 4px 20px rgba(44, 62, 80, 0.3);  /* 深藍色陰影 */
     backdrop-filter: blur(10px);
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 0 0 20px 20px;  /* 底部圓角 */
 }
 
 .nav-container {
@@ -165,32 +266,71 @@ html {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    padding: 8px 16px;
+    border-radius: 20px;  /* 圓角設計 */
 }
 
 .nav-link:hover {
     color: #ffd700;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.05);  /* 懸停時縮放 */
+    background: rgba(255, 215, 0, 0.1);  /* 懸停背景 */
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);  /* 發光效果 */
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #ffd700;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-gold);  /* 使用金色漸層 */
     transition: width 0.3s ease;
+    border-radius: 2px;
 }
 
 .nav-link:hover::after {
-    width: 100%;
+    width: 80%;
 }
 
 /* 主題切換按鈕 */
 .theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;  /* 圓形按鈕 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    transform: scale(1.1) rotate(180deg);  /* 懸停時旋轉 */
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* 主題選擇器容器 */
+.theme-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+/* 配色主題下拉選單 */
+.color-theme-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.color-theme-btn {
     background: rgba(255, 255, 255, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.3);
     color: white;
@@ -201,6 +341,169 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.color-theme-btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* 配色主題選單 */
+.color-theme-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    border: 1px solid var(--border-color);
+}
+
+.color-theme-dropdown:hover .color-theme-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 主題選項 */
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.theme-option:hover {
+    background: var(--bg-color);
+    transform: translateX(5px);
+}
+
+.theme-option:last-child {
+    margin-bottom: 0;
+}
+
+/* 主題預覽色塊 */
+.theme-preview {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.theme-preview::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* 各主題預覽色 */
+.theme-preview.golden {
+    background: linear-gradient(135deg, #daa520, #ffd700);
+}
+
+.theme-preview.earthy {
+    background: linear-gradient(135deg, #8B4513, #CD853F);
+}
+
+.theme-preview.warm {
+    background: linear-gradient(135deg, #A0522D, #D2691E);
+}
+
+.theme-preview.clean {
+    background: linear-gradient(135deg, #2C3E50, #E74C3C);
+}
+
+.theme-preview.soft {
+    background: linear-gradient(135deg, #9B59B6, #E91E63);
+}
+
+.theme-preview.accent {
+    background: linear-gradient(135deg, #E74C3C, #F39C12);
+}
+
+.theme-preview.futuristic {
+    background: linear-gradient(135deg, #00D4FF, #FFD700);
+}
+
+.theme-option span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* 活躍的主題選項 */
+.theme-option.active {
+    background: var(--primary-color);
+    color: white;
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.theme-option.active span {
+    color: white;
+    font-weight: 600;
+}
+
+.theme-option.active .theme-preview {
+    border-color: white;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* 響應式設計 - 主題選擇器 */
+@media (max-width: 768px) {
+    .theme-selector {
+        gap: 5px;
+    }
+    
+    .color-theme-btn,
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .color-theme-menu {
+        right: -50px;
+        min-width: 180px;
+    }
+    
+    .theme-option {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+    
+    .theme-preview {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .theme-option span {
+        font-size: 13px;
+    }
+}
     font-size: 1.1rem;
     transition: all 0.3s ease;
     margin-right: 1rem;
@@ -278,36 +581,61 @@ main {
 .btn {
     padding: 15px 30px;
     border: none;
-    border-radius: 50px;
+    border-radius: 25px;  /* 更柔和的圓角 */
     font-size: 1.1rem;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* 更流暢的動畫 */
     cursor: pointer;
     display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 光澤掃過效果 */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn-primary {
-    background: #ffd700;
+    background: var(--gradient-gold);  /* 使用金色漸層 */
     color: #333;
+    box-shadow: 0 4px 15px var(--shadow), 0 2px 5px rgba(0, 0, 0, 0.1);  /* 多層次陰影 */
 }
 
 .btn-primary:hover {
-    background: #ffed4e;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #daa520 100%);
+    transform: translateY(-5px) scale(1.05);  /* 懸停時縮放 */
+    box-shadow: 0 15px 35px var(--shadow-hover), 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active {
+    transform: translateY(-2px) scale(1.02);  /* 按下時輕微縮放 */
 }
 
 .btn-secondary {
     background: transparent;
     color: white;
     border: 2px solid white;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary:hover {
     background: white;
     color: #333;
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
 }
 
 /* 程式碼動畫 */
@@ -315,6 +643,59 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+/* 頭像彈跳動畫 */
+.hero-image .code-animation {
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* 文字漂浮動畫 */
+.hero h1 {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 光澤掃過動畫 */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
 }
 
 .code-animation {
@@ -380,10 +761,12 @@ main {
 .terminology-card {
     background: var(--card-bg);
     padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px var(--shadow);
-    transition: all 0.3s ease;
+    border-radius: 20px;  /* 更柔和的圓角 */
+    box-shadow: 0 8px 25px var(--shadow), 0 2px 10px rgba(0, 0, 0, 0.05);  /* 多層次陰影 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
     /* 硬體加速優化 */
     will-change: transform, opacity;
     transform: translateZ(0);
@@ -391,20 +774,43 @@ main {
     -webkit-backface-visibility: hidden;
 }
 
+.terminology-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-gold);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
 .terminology-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    transform: translateY(-8px) scale(1.02);  /* 懸停時縮放 */
+    box-shadow: 0 20px 40px var(--shadow-hover), 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.terminology-card:hover::before {
+    opacity: 1;
 }
 
 .card-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: var(--gradient-gold);  /* 使用金色漸層 */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.card-icon:hover {
+    transform: scale(1.1) rotate(5deg);  /* 懸停時旋轉和縮放 */
+    box-shadow: 0 6px 20px var(--shadow-hover);
 }
 
 .card-icon i {
@@ -963,9 +1369,11 @@ main {
 .command-card {
     background: var(--card-bg);
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px var(--shadow);
-    transition: all 0.3s ease;
+    border-radius: 20px;  /* 更柔和的圓角 */
+    box-shadow: 0 10px 30px var(--shadow), 0 2px 10px rgba(0, 0, 0, 0.05);  /* 多層次陰影 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
     /* 硬體加速優化 */
     will-change: transform, opacity;
     transform: translateZ(0);
@@ -973,9 +1381,25 @@ main {
     -webkit-backface-visibility: hidden;
 }
 
+.command-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-gold);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
 .command-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px var(--shadow-hover);
+    transform: translateY(-8px) scale(1.02);  /* 懸停時縮放 */
+    box-shadow: 0 20px 40px var(--shadow-hover), 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.command-card:hover::before {
+    opacity: 1;
 }
 
 .command-card h4 {
@@ -1144,17 +1568,36 @@ main {
 .resource-card {
     text-align: center;
     padding: 3rem 2rem;
-    border-radius: 15px;
+    border-radius: 25px;  /* 更柔和的圓角 */
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow), 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .resource-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    transform: translateY(-12px) scale(1.03);  /* 懸停時縮放 */
+    box-shadow: 0 25px 50px var(--shadow-hover), 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: var(--gradient-gold);
     color: white;
+}
+
+.resource-card:hover::before {
+    opacity: 1;
 }
 
 .resource-card i {
@@ -2776,5 +3219,181 @@ html {
         width: 100%;
         max-width: 300px;
         justify-content: center;
+    }
+}/* ===========================================
+   �]�p�u�ƫ��O�˦� (Design Commands Styles)
+   =========================================== */
+
+/* �]�p�u�ƫ��O�϶� */
+.design-commands {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.design-commands::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="design-pattern" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23667eea" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23design-pattern)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.commands-content {
+    position: relative;
+    z-index: 1;
+}
+
+.command-category {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.command-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+.command-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+}
+
+.command-category h3 {
+    color: #2d3748;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.command-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.command-item {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.2rem;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.command-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.command-item:hover::before {
+    left: 100%;
+}
+
+.command-item:hover {
+    background: #e3f2fd;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+    border-color: #667eea;
+}
+
+.command-title {
+    display: block;
+    color: #2d3748;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.command-desc {
+    display: block;
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* �T�����]�p - �]�p�u�ƫ��O */
+@media (max-width: 768px) {
+    .design-commands {
+        padding: 60px 0;
+    }
+    
+    .command-category {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .command-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .command-list {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .command-item {
+        padding: 1rem;
+    }
+    
+    .command-title {
+        font-size: 0.95rem;
+    }
+    
+    .command-desc {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .command-category {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .command-category h3 {
+        font-size: 1.2rem;
+    }
+    
+    .command-item {
+        padding: 0.8rem;
+    }
+    
+    .command-title {
+        font-size: 0.9rem;
+    }
+    
+    .command-desc {
+        font-size: 0.8rem;
     }
 }

@@ -90,10 +90,47 @@
                 </li>
             </ul>
             
-            <!-- 主題切換按鈕 -->
-            <button id="themeToggle" class="theme-toggle" aria-label="切換主題" title="切換明暗主題">
-                <i class="fas fa-moon" aria-hidden="true"></i>
-            </button>
+            <!-- 配色主題選擇器 -->
+            <div class="theme-selector">
+                <button id="themeToggle" class="theme-toggle" aria-label="切換明暗主題" title="切換明暗主題">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <div class="color-theme-dropdown">
+                    <button class="color-theme-btn" aria-label="配色主題選單" title="選擇配色主題">
+                        <i class="fas fa-palette" aria-hidden="true"></i>
+                    </button>
+                    <div class="color-theme-menu">
+                        <div class="theme-option" data-theme="golden" title="金色主題">
+                            <div class="theme-preview golden"></div>
+                            <span>金色主題</span>
+                        </div>
+                        <div class="theme-option" data-theme="earthy" title="自然大地調">
+                            <div class="theme-preview earthy"></div>
+                            <span>自然大地調</span>
+                        </div>
+                        <div class="theme-option" data-theme="warm" title="溫暖中性色">
+                            <div class="theme-preview warm"></div>
+                            <span>溫暖中性色</span>
+                        </div>
+                        <div class="theme-option" data-theme="clean" title="乾淨白色">
+                            <div class="theme-preview clean"></div>
+                            <span>乾淨白色</span>
+                        </div>
+                        <div class="theme-option" data-theme="soft" title="柔和夢幻色">
+                            <div class="theme-preview soft"></div>
+                            <span>柔和夢幻色</span>
+                        </div>
+                        <div class="theme-option" data-theme="accent" title="鮮亮點綴色">
+                            <div class="theme-preview accent"></div>
+                            <span>鮮亮點綴色</span>
+                        </div>
+                        <div class="theme-option" data-theme="futuristic" title="未來科技感">
+                            <div class="theme-preview futuristic"></div>
+                            <span>未來科技感</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- 響應式選單按鈕 -->
             <div class="hamburger" aria-label="開啟選單" role="button" tabindex="0">
@@ -497,6 +534,24 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="command-card template-card">
+                                <div class="template-icon">🎨</div>
+                                <h4>2025年設計示範</h4>
+                                <p>現代化設計、玻璃質感、漸層背景、響應式佈局</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">玻璃質感</span>
+                                    <span class="feature-tag">漸層背景</span>
+                                    <span class="feature-tag">響應式設計</span>
+                                    <span class="feature-tag">深色模式</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="2025-design-demo">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="2025-design-demo-html">完整示範型</button>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="command-card template-card feature-combiner-card">
                                 <div class="template-icon">🎛️</div>
                                 <h4>自訂功能組合器</h4>
@@ -736,6 +791,383 @@
                                     - 自動擴展和縮減資源<br>
                                     - 降低營運成本</code>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===========================================
+             設計優化指令區塊 (Design Optimization Commands Section)
+             功能：2025年現代化設計優化指令
+             =========================================== -->
+        <section id="design-commands" class="design-commands" aria-labelledby="design-commands-title">
+            <div class="container">
+                <h2 id="design-commands-title" class="section-title">🎨 設計優化指令</h2>
+                <div class="commands-content">
+                    <div class="command-category">
+                        <h3>🧭 導航欄革新</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">全屏玻璃質感選單</span>
+                                <span class="command-desc">採用毛玻璃效果和漸變背景</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">流暢動畫</span>
+                                <span class="command-desc">選單項目依次從下方滑入</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">現代化按鈕</span>
+                                <span class="command-desc">圓角設計，懸停效果和光澤動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">優雅過渡</span>
+                                <span class="command-desc">使用cubic-bezier緩動函數</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🌈 Hero區塊重設計</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">動態漸變背景</span>
+                                <span class="command-desc">多色彩漸變，自動循環動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">玻璃質感元素</span>
+                                <span class="command-desc">統計卡片和展示項目採用毛玻璃效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">現代化排版</span>
+                                <span class="command-desc">漸變文字效果和陰影層次</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">微交互設計</span>
+                                <span class="command-desc">懸停時的縮放和移動效果</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>💳 卡片設計革新</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">新擬態設計</span>
+                                <span class="command-desc">採用Neumorphism風格，立體陰影效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">圓角趨勢</span>
+                                <span class="command-desc">24px圓角，符合2025年設計趨勢</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">漸變裝飾</span>
+                                <span class="command-desc">卡片頂部彩色漸變條</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">光澤動畫</span>
+                                <span class="command-desc">卡片內部的shimmer效果</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🔘 按鈕和互動優化</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">立體按鈕</span>
+                                <span class="command-desc">新擬態風格的按鈕設計</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">光澤掃過效果</span>
+                                <span class="command-desc">懸停時的光澤動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">流暢過渡</span>
+                                <span class="command-desc">所有互動都有平滑的動畫效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">觸控友好</span>
+                                <span class="command-desc">適合手機觸控的按鈕尺寸</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🎨 色彩和字體層次</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">現代化配色</span>
+                                <span class="command-desc">採用2025年流行的漸變色彩</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">字體層次</span>
+                                <span class="command-desc">清晰的字體大小和權重層次</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">漸變文字</span>
+                                <span class="command-desc">標題使用漸變色彩效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">陰影系統</span>
+                                <span class="command-desc">多層次陰影營造深度感</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>✨ 動畫效果系統</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">漸變背景動畫</span>
+                                <span class="command-desc">Hero區塊的動態漸變</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">標題發光效果</span>
+                                <span class="command-desc">文字的光暈動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">浮動動畫</span>
+                                <span class="command-desc">徽章的上下浮動效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">光澤掃過</span>
+                                <span class="command-desc">按鈕和卡片的shimmer效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">彈跳動畫</span>
+                                <span class="command-desc">互動元素的彈跳效果</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>📐 內容設計優化</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">大間距設計</span>
+                                <span class="command-desc">增加所有元素間的呼吸空間</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">不對稱間距</span>
+                                <span class="command-desc">打破傳統對稱，創造視覺層次</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">動態間距</span>
+                                <span class="command-desc">根據內容重要性調整間距</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">容器內邊距優化</span>
+                                <span class="command-desc">從 var(--spacing-md) 增加到 var(--spacing-lg)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">卡片內邊距優化</span>
+                                <span class="command-desc">從 var(--spacing-xl) 增加到 var(--spacing-xxl)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🔤 字體大小層次</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">區塊標題</span>
+                                <span class="command-desc">2.5rem (更大更醒目)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">卡片標題</span>
+                                <span class="command-desc">1.5rem (增強視覺層次)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">表單標題</span>
+                                <span class="command-desc">1.6rem (突出重要性)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">段落文字</span>
+                                <span class="command-desc">1.1rem (提升可讀性)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">功能列表</span>
+                                <span class="command-desc">1rem (清晰易讀)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">按鈕文字</span>
+                                <span class="command-desc">1.1rem (觸控友好)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">字體權重</span>
+                                <span class="command-desc">使用 700-900 的粗體權重</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">字母間距</span>
+                                <span class="command-desc">添加 letter-spacing 優化可讀性</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>📱 欄寬和佈局</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">流動式佈局</span>
+                                <span class="command-desc">充分利用手機螢幕寬度</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">統一內邊距</span>
+                                <span class="command-desc">所有區塊使用 var(--spacing-lg) 內邊距</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">響應式間距</span>
+                                <span class="command-desc">根據螢幕尺寸動態調整</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">內容最大寬度</span>
+                                <span class="command-desc">優化閱讀體驗</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>👁️ 視覺層次和可讀性</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">行高優化</span>
+                                <span class="command-desc">使用 1.6-1.7 的行高提升可讀性</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">字體層次</span>
+                                <span class="command-desc">清晰的標題、副標題、內容層次</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">間距系統</span>
+                                <span class="command-desc">統一的間距變數系統</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">視覺呼吸空間</span>
+                                <span class="command-desc">增加元素間的空隙</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🚀 2025年設計趨勢特色</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">玻璃質感（Glassmorphism）</span>
+                                <span class="command-desc">毛玻璃效果和透明度</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">新擬態設計（Neumorphism）</span>
+                                <span class="command-desc">立體陰影和柔和的視覺效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">動態漸變</span>
+                                <span class="command-desc">多色彩漸變背景和動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">微交互設計</span>
+                                <span class="command-desc">細膩的動畫和過渡效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">圓角設計</span>
+                                <span class="command-desc">大圓角符合現代審美</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">立體陰影</span>
+                                <span class="command-desc">多層次陰影營造深度感</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">大間距設計</span>
+                                <span class="command-desc">更多呼吸空間，減少視覺壓迫感</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">現代化字體比例</span>
+                                <span class="command-desc">使用 1.25-1.333 的黃金比例</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">粗體字體權重</span>
+                                <span class="command-desc">700-900 的粗體增強視覺衝擊</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">流動式佈局</span>
+                                <span class="command-desc">充分利用螢幕空間</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">觸控友好設計</span>
+                                <span class="command-desc">按鈕和輸入框適合手指操作</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">視覺層次清晰</span>
+                                <span class="command-desc">通過字體大小和間距創造層次</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>📱 手機版優化重點</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">更大的觸控目標</span>
+                                <span class="command-desc">按鈕和互動元素尺寸優化</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">清晰的視覺層次</span>
+                                <span class="command-desc">通過字體大小和間距引導視線</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">舒適的閱讀體驗</span>
+                                <span class="command-desc">優化的行高和字體大小</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">現代化間距</span>
+                                <span class="command-desc">符合2025年設計趨勢的大間距</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🎨 2025 HTML 設計示範模板</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">現代化設計範例</span>
+                                <span class="command-desc">大間距・流動式・玻璃擬態・漸層背景</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">響應式導航列</span>
+                                <span class="command-desc">手機/桌機自適應，玻璃質感效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">Hero 區塊設計</span>
+                                <span class="command-desc">全螢幕背景、漸層遮罩、CTA按鈕</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">卡片懸停效果</span>
+                                <span class="command-desc">3D變換、陰影動畫、微交互設計</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">圖片展示區</span>
+                                <span class="command-desc">網格佈局、懸停縮放、圓角設計</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">Masonry 流式排版</span>
+                                <span class="command-desc">手機專用瀑布流佈局</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">Glassmorphism 效果</span>
+                                <span class="command-desc">半透明毛玻璃、背景模糊</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">Skeleton Loading</span>
+                                <span class="command-desc">載入動畫、shimmer效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">深色模式支援</span>
+                                <span class="command-desc">自動適配系統主題偏好</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">動效系統</span>
+                                <span class="command-desc">淡入動畫、流暢過渡效果</span>
                             </div>
                         </div>
                     </div>

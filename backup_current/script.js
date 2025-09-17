@@ -493,6 +493,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // ===========================================
+    // 配色主題切換功能 (Color Theme Toggle Function)
+    // ===========================================
+    const colorThemeOptions = document.querySelectorAll('.theme-option');
+    const currentColorTheme = localStorage.getItem('colorTheme') || 'golden';
+    
+    // 初始化配色主題
+    document.documentElement.setAttribute('data-color-theme', currentColorTheme);
+    updateActiveColorTheme(currentColorTheme);
+    
+    // 配色主題切換事件
+    colorThemeOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const selectedTheme = this.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-color-theme', selectedTheme);
+            localStorage.setItem('colorTheme', selectedTheme);
+            updateActiveColorTheme(selectedTheme);
+            
+            // 添加切換動畫效果
+            document.body.style.transition = 'all 0.5s ease';
+            setTimeout(() => {
+                document.body.style.transition = '';
+            }, 500);
+        });
+    });
+    
+    // 更新活躍的配色主題選項
+    function updateActiveColorTheme(theme) {
+        colorThemeOptions.forEach(option => {
+            option.classList.remove('active');
+            if (option.getAttribute('data-theme') === theme) {
+                option.classList.add('active');
+            }
+        });
+    }
+
     // 載入進度條
     function addLoadingProgress() {
         const progressBar = document.createElement('div');
@@ -4582,6 +4618,59 @@ if (window.performance && window.performance.mark) {
 function initializeTemplateCopy() {
     // 範本指令資料庫
     const templateCommands = {
+        '2025-design-demo': `請幫我建立一個2025年現代化設計示範網站，採用最新設計趨勢和視覺效果：
+
+**🎯 專案需求：**
+- 目標用戶：前端開發者、設計師、學習者
+- 核心功能：設計示範、技術展示、模板參考
+- 設計風格：現代化、簡潔、使用漸層和玻璃質感
+- 技術要求：純HTML + CSS + JavaScript，完全響應式設計
+
+**🚀 2025年最新設計特色：**
+- 大間距設計：增加所有元素間的呼吸空間
+- 流動式佈局：充分利用手機螢幕寬度
+- 玻璃擬態（Glassmorphism）：半透明毛玻璃效果
+- 漸層背景：多色彩漸變和動態效果
+- 響應式導航：手機/桌機自適應
+- 卡片懸停效果：3D變換、陰影動畫
+- Masonry流式排版：手機專用瀑布流佈局
+- Skeleton Loading：載入動畫和shimmer效果
+- 深色模式支援：自動適配系統主題偏好
+
+**📱 手機版優化：**
+- 更大的觸控目標：按鈕和互動元素尺寸優化
+- 清晰的視覺層次：通過字體大小和間距引導視線
+- 舒適的閱讀體驗：優化的行高和字體大小
+- 現代化間距：符合2025年設計趨勢的大間距
+
+**🎨 視覺設計要求：**
+- 字體：使用 Inter 和 Noto Sans TC 字體
+- 字體大小：標題 2-3rem，內容 1.1rem，行高 1.7
+- 字體權重：標題 700-800，內容 400-600
+- 間距：使用統一的間距系統（24px, 32px等）
+- 圓角：卡片 20px，按鈕 12px，圖片 16px
+- 陰影：多層次陰影營造深度感
+- 動效：流暢的過渡動畫和微交互
+
+**🔧 技術實作要求：**
+- 使用CSS Grid和Flexbox進行佈局
+- 實現CSS變數系統管理顏色和間距
+- 使用CSS動畫和過渡效果
+- 實現響應式圖片和媒體查詢
+- 使用backdrop-filter實現玻璃質感
+- 實現深色模式自動切換
+- 優化載入性能和用戶體驗
+
+**📋 頁面結構：**
+1. 響應式導航列（玻璃質感）
+2. Hero區塊（全螢幕背景、漸層遮罩）
+3. 特色卡片展示區
+4. 圖片展示區（網格佈局）
+5. Masonry流式排版區
+6. Glassmorphism效果區
+7. Skeleton Loading示範區
+
+請提供完整的程式碼實作和部署指南。`,
         'beauty': `請幫我建立一個完整的美業招募網站，包含以下功能：
 
 **專案需求：**
@@ -5268,6 +5357,59 @@ function initializeTemplateCopy() {
 
     // HTML方案指令資料庫
     const htmlTemplateCommands = {
+        '2025-design-demo-html': `請幫我建立一個2025年現代化設計示範網站（HTML方案），採用最新設計趨勢和視覺效果：
+
+**🎯 專案需求：**
+- 目標用戶：前端開發者、設計師、學習者
+- 核心功能：設計示範、技術展示、模板參考
+- 設計風格：現代化、簡潔、使用漸層和玻璃質感
+- 技術要求：純HTML + CSS + JavaScript，完全響應式設計
+
+**🚀 2025年最新設計特色：**
+- 大間距設計：增加所有元素間的呼吸空間
+- 流動式佈局：充分利用手機螢幕寬度
+- 玻璃擬態（Glassmorphism）：半透明毛玻璃效果
+- 漸層背景：多色彩漸變和動態效果
+- 響應式導航：手機/桌機自適應
+- 卡片懸停效果：3D變換、陰影動畫
+- Masonry流式排版：手機專用瀑布流佈局
+- Skeleton Loading：載入動畫和shimmer效果
+- 深色模式支援：自動適配系統主題偏好
+
+**📱 手機版優化：**
+- 更大的觸控目標：按鈕和互動元素尺寸優化
+- 清晰的視覺層次：通過字體大小和間距引導視線
+- 舒適的閱讀體驗：優化的行高和字體大小
+- 現代化間距：符合2025年設計趨勢的大間距
+
+**🎨 視覺設計要求：**
+- 字體：使用 Inter 和 Noto Sans TC 字體
+- 字體大小：標題 2-3rem，內容 1.1rem，行高 1.7
+- 字體權重：標題 700-800，內容 400-600
+- 間距：使用統一的間距系統（24px, 32px等）
+- 圓角：卡片 20px，按鈕 12px，圖片 16px
+- 陰影：多層次陰影營造深度感
+- 動效：流暢的過渡動畫和微交互
+
+**🔧 技術實作要求：**
+- 使用CSS Grid和Flexbox進行佈局
+- 實現CSS變數系統管理顏色和間距
+- 使用CSS動畫和過渡效果
+- 實現響應式圖片和媒體查詢
+- 使用backdrop-filter實現玻璃質感
+- 實現深色模式自動切換
+- 優化載入性能和用戶體驗
+
+**📋 頁面結構：**
+1. 響應式導航列（玻璃質感）
+2. Hero區塊（全螢幕背景、漸層遮罩）
+3. 特色卡片展示區
+4. 圖片展示區（網格佈局）
+5. Masonry流式排版區
+6. Glassmorphism效果區
+7. Skeleton Loading示範區
+
+請提供完整的程式碼實作和部署指南。`,
         'beauty-html': `請幫我建立一個2025年現代化美業基本展示型網站（HTML方案），採用最新設計趨勢和時尚視覺效果：
 
 **🎯 專案需求：**
