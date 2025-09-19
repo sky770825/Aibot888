@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI專案管理工具測試</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; margin: 10px; background: #007cba; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #005a8b; }
+        .result { margin: 10px 0; padding: 10px; background: #f0f0f0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 AI專案管理工具測試頁面</h1>
+    
+    <div class="test-section">
+        <h2>測試1: JavaScript載入檢查</h2>
+        <button onclick="testJavaScriptLoad()">測試JavaScript載入</button>
+        <div id="jsLoadResult" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>測試2: 專案分析器</h2>
+        <input type="text" id="projectPath" placeholder="輸入專案路徑" value="我的測試專案">
+        <button onclick="testProjectAnalyzer()">測試專案分析</button>
+        <div id="analyzerResult" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>測試3: AI指令生成器</h2>
+        <button onclick="testCommandGenerator()">測試指令生成</button>
+        <div id="commandResult" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>測試4: 版面檢測器</h2>
+        <button onclick="testLayoutOptimizer()">測試版面檢測</button>
+        <div id="layoutResult" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>測試5: 手機版檢查器</h2>
+        <button onclick="testMobileChecker()">測試手機版檢查</button>
+        <div id="mobileResult" class="result"></div>
+    </div>
+
+    <script src="project-tools.js"></script>
+    <script>
+        // 測試函數
+        function testJavaScriptLoad() {
+            const result = document.getElementById('jsLoadResult');
+            if (typeof ProjectAnalyzer !== 'undefined') {
+                result.innerHTML = '✅ JavaScript載入成功！<br>✅ ProjectAnalyzer類別已定義<br>✅ AICommandGenerator類別已定義<br>✅ LayoutOptimizer類別已定義<br>✅ MobileChecker類別已定義';
+                result.style.background = '#d4edda';
+                result.style.color = '#155724';
+            } else {
+                result.innerHTML = '❌ JavaScript載入失敗！';
+                result.style.background = '#f8d7da';
+                result.style.color = '#721c24';
+            }
+        }
+        
+        function testProjectAnalyzer() {
+            const result = document.getElementById('analyzerResult');
+            try {
+                const analyzer = new ProjectAnalyzer();
+                const projectPath = document.getElementById('projectPath').value;
+                analyzer.analyzeProject(projectPath).then(analysis => {
+                    const report = analyzer.generateReport(analysis);
+                    result.innerHTML = '✅ 專案分析器測試成功！<br><pre>' + report.substring(0, 500) + '...</pre>';
+                    result.style.background = '#d4edda';
+                    result.style.color = '#155724';
+                });
+            } catch (error) {
+                result.innerHTML = '❌ 專案分析器測試失敗：' + error.message;
+                result.style.background = '#f8d7da';
+                result.style.color = '#721c24';
+            }
+        }
+        
+        function testCommandGenerator() {
+            const result = document.getElementById('commandResult');
+            try {
+                const generator = new AICommandGenerator();
+                const settings = {
+                    projectType: 'website',
+                    mainTech: 'html-css-js',
+                    requirements: ['responsive', 'performance', 'seo'],
+                    specialRequirements: '這是一個測試專案'
+                };
+                const command = generator.generateCommand(settings);
+                result.innerHTML = '✅ AI指令生成器測試成功！<br><pre>' + command.substring(0, 500) + '...</pre>';
+                result.style.background = '#d4edda';
+                result.style.color = '#155724';
+            } catch (error) {
+                result.innerHTML = '❌ AI指令生成器測試失敗：' + error.message;
+                result.style.background = '#f8d7da';
+                result.style.color = '#721c24';
+            }
+        }
+        
+        function testLayoutOptimizer() {
+            const result = document.getElementById('layoutResult');
+            try {
+                const optimizer = new LayoutOptimizer();
+                const issues = optimizer.checkLayout(['overlap', 'spacing', 'alignment']);
+                result.innerHTML = '✅ 版面檢測器測試成功！<br>檢測到 ' + issues.length + ' 個問題<br><pre>' + JSON.stringify(issues, null, 2) + '</pre>';
+                result.style.background = '#d4edda';
+                result.style.color = '#155724';
+            } catch (error) {
+                result.innerHTML = '❌ 版面檢測器測試失敗：' + error.message;
+                result.style.background = '#f8d7da';
+                result.style.color = '#721c24';
+            }
+        }
+        
+        function testMobileChecker() {
+            const result = document.getElementById('mobileResult');
+            try {
+                const checker = new MobileChecker();
+                const result_data = checker.checkMobile('iphone');
+                result.innerHTML = '✅ 手機版檢查器測試成功！<br>評分：' + result_data.score.text + '<br>檢測到 ' + result_data.issues.length + ' 個問題<br><pre>' + JSON.stringify(result_data.issues, null, 2) + '</pre>';
+                result.style.background = '#d4edda';
+                result.style.color = '#155724';
+            } catch (error) {
+                result.innerHTML = '❌ 手機版檢查器測試失敗：' + error.message;
+                result.style.background = '#f8d7da';
+                result.style.color = '#721c24';
+            }
+        }
+        
+        // 頁面載入完成後自動測試JavaScript載入
+        window.addEventListener('load', function() {
+            console.log('🧪 測試頁面載入完成');
+            testJavaScriptLoad();
+        });
+    </script>
+</body>
+</html>
