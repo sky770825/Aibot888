@@ -1,0 +1,99 @@
+/* ===========================================
+   響應式模組 (Responsive Module)
+   功能：媒體查詢和響應式設計
+   =========================================== */
+
+/* 小螢幕 (手機) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .terminology-card {
+        padding: var(--spacing-md);
+    }
+    
+    .card {
+        padding: var(--spacing-md);
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: var(--spacing-lg);
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+/* 中等螢幕 (平板) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+}
+
+/* 大螢幕 (桌面) */
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 var(--spacing-xl);
+    }
+    
+    .terminology-card:hover {
+        transform: translateY(-6px);
+    }
+}
+
+/* 超大螢幕 */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .grid-auto {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+/* 高解析度螢幕 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .card,
+    .terminology-card {
+        box-shadow: 0 2px 12px var(--shadow);
+    }
+}
+
+/* 橫向模式 */
+@media (orientation: landscape) and (max-height: 500px) {
+    .modal-content {
+        max-height: 90vh;
+    }
+}
+
+/* 列印樣式 */
+@media print {
+    .btn,
+    .modal,
+    .search-results {
+        display: none;
+    }
+    
+    .card,
+    .terminology-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}

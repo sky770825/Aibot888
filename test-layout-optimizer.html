@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>測試布局優化檢測器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .test-btn:hover {
+            background: #5a67d8;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            display: none;
+        }
+        .issue-item {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .recommendation-item {
+            background: #d1fae5;
+            border: 1px solid #a7f3d0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 布局優化檢測器測試</h1>
+        <p>點擊下面的按鈕來測試布局優化檢測器功能：</p>
+        
+        <button id="runLayoutOptimizer" class="test-btn">
+            🚀 開始布局優化檢測
+        </button>
+        
+        <div id="layoutOptimizerResults" class="results">
+            <h3>📊 檢測結果</h3>
+            <div id="optimizationScore">優化評分: 0/100</div>
+            
+            <h4>🔍 發現的問題</h4>
+            <div id="optimizationIssues"></div>
+            
+            <h4>💡 優化建議</h4>
+            <div id="optimizationRecommendations" style="display: none;">
+                <div id="recommendationsList"></div>
+            </div>
+            
+            <h4>🔧 優化代碼</h4>
+            <div id="optimizationCode" style="display: none;">
+                <div id="cssCode"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔍 測試頁面載入完成');
+            
+            const runBtn = document.getElementById('runLayoutOptimizer');
+            console.log('🔍 找到按鈕:', runBtn);
+            
+            if (runBtn) {
+                runBtn.addEventListener('click', function(e) {
+                    console.log('🖱️ 按鈕被點擊！');
+                    e.preventDefault();
+                    
+                    // 顯示結果面板
+                    const resultsDiv = document.getElementById('layoutOptimizerResults');
+                    resultsDiv.style.display = 'block';
+                    
+                    // 更新評分
+                    const scoreElement = document.getElementById('optimizationScore');
+                    scoreElement.textContent = '優化評分: 85/100';
+                    
+                    // 顯示問題
+                    const issuesDiv = document.getElementById('optimizationIssues');
+                    issuesDiv.innerHTML = `
+                        <div class="issue-item">
+                            <h5>建議使用 Grid 布局</h5>
+                            <p>您的網站可以考慮使用 CSS Grid 來改善布局結構</p>
+                        </div>
+                        <div class="issue-item">
+                            <h5>響應式設計優化</h5>
+                            <p>建議添加更多媒體查詢以支援不同螢幕尺寸</p>
+                        </div>
+                        <div class="issue-item">
+                            <h5>間距系統不統一</h5>
+                            <p>建議使用 CSS 變數建立統一的間距系統</p>
+                        </div>
+                    `;
+                    
+                    // 顯示建議
+                    const recommendationsDiv = document.getElementById('optimizationRecommendations');
+                    recommendationsDiv.style.display = 'block';
+                    const recommendationsList = document.getElementById('recommendationsList');
+                    recommendationsList.innerHTML = `
+                        <div class="recommendation-item">
+                            <h6>實施 CSS Grid 布局</h6>
+                            <p>使用 CSS Grid 創建現代化的二維布局，提升響應式效果</p>
+                        </div>
+                        <div class="recommendation-item">
+                            <h6>添加響應式設計</h6>
+                            <p>使用媒體查詢創建響應式布局，支援各種裝置</p>
+                        </div>
+                        <div class="recommendation-item">
+                            <h6>建立設計系統</h6>
+                            <p>使用 CSS 變數統一管理間距、顏色和字體</p>
+                        </div>
+                    `;
+                    
+                    // 顯示代碼
+                    const codeDiv = document.getElementById('optimizationCode');
+                    codeDiv.style.display = 'block';
+                    const cssCode = document.getElementById('cssCode');
+                    cssCode.innerHTML = `
+                        <pre><code>/* CSS 優化建議 */
+
+/* 1. 建立設計系統 */
+:root {
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-text: #1f2937;
+}
+
+/* 2. 現代化 Grid 布局 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+/* 3. 響應式設計 */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+}</code></pre>
+                    `;
+                    
+                    console.log('✅ 測試完成，結果已顯示');
+                });
+                
+                console.log('✅ 事件監聽器添加完成');
+            } else {
+                console.log('❌ 未找到按鈕');
+            }
+        });
+    </script>
+</body>
+</html>

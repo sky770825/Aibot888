@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 CSS 布局優化工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .section h2 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .section h3 {
+            color: #374151;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .step {
+            background: white;
+            padding: 1rem;
+            margin: 0.8rem 0;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 0.8rem 0;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .optimization-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 350px;
+            max-height: 80vh;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            overflow-y: auto;
+            font-size: 14px;
+            line-height: 1.5;
+            display: none;
+        }
+
+        .panel-header {
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f8fafc;
+        }
+
+        .panel-body {
+            padding: 20px;
+        }
+
+        .issue-item {
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #fef2f2;
+            border-left: 3px solid #dc2626;
+            border-radius: 4px;
+        }
+
+        .recommendation-item {
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #f0fdf4;
+            border-left: 3px solid #059669;
+            border-radius: 4px;
+        }
+
+        .copy-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .copy-btn:hover {
+            background: #059669;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .optimization-panel {
+                width: calc(100vw - 40px);
+                right: 20px;
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 CSS 布局優化工具</h1>
+            <p>專業級布局優化方案，讓您的網站更加美觀和直觀</p>
+        </div>
+
+        <div class="content">
+            <!-- 快速開始 -->
+            <div class="section">
+                <h2>🚀 快速開始</h2>
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>啟動網站</strong> - 確保您的網站正在運行 (http://localhost:8080)
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>開啟優化工具</strong> - 按 F12 開啟開發者工具，在控制台輸入：
+                    <div class="code-block">new LayoutOptimizer()</div>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>查看優化面板</strong> - 右上角會出現優化建議面板
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>應用優化</strong> - 點擊建議查看詳細代碼並應用改進
+                </div>
+                
+                <button class="btn" onclick="openOptimizationPanel()">🔍 開啟優化面板</button>
+                <button class="btn btn-secondary" onclick="runAnalysis()">📊 運行分析</button>
+            </div>
+
+            <!-- 優化功能 -->
+            <div class="section">
+                <h2>🛠️ 優化功能</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>自動檢測</h3>
+                        <p>智能檢測 Grid、Flexbox、響應式設計等布局問題</p>
+                        <span class="status success">已就緒</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>優化建議</h3>
+                        <p>提供具體的 CSS 代碼建議和最佳實踐</p>
+                        <span class="status success">已就緒</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>一鍵應用</h3>
+                        <p>自動應用優化建議，快速改善布局</p>
+                        <span class="status success">已就緒</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>響應式檢查</h3>
+                        <p>檢測和優化各種裝置的顯示效果</p>
+                        <span class="status success">已就緒</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>視覺層次</h3>
+                        <p>分析並改善視覺層次和空間感</p>
+                        <span class="status success">已就緒</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>效能優化</h3>
+                        <p>優化 CSS 效能和載入速度</p>
+                        <span class="status success">已就緒</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 優化資源 -->
+            <div class="section">
+                <h2>📚 優化資源</h2>
+                <div class="step">
+                    <span class="step-number">📄</span>
+                    <strong>css-modules/advanced-layout.css</strong> - 進階布局系統
+                    <p>包含完整的 Grid、Flexbox、間距、響應式設計工具類別</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">📖</span>
+                    <strong>CSS布局優化完整指南.md</strong> - 詳細優化指南
+                    <p>完整的優化策略、最佳實踐和實施步驟</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">🤖</span>
+                    <strong>layout-optimizer.js</strong> - 自動優化工具
+                    <p>智能檢測布局問題並提供優化建議</p>
+                </div>
+            </div>
+
+            <!-- 使用範例 -->
+            <div class="section">
+                <h2>💻 使用範例</h2>
+                <h3>1. 檢測布局問題</h3>
+                <div class="code-block">// 在瀏覽器控制台執行
+const optimizer = new LayoutOptimizer();
+// 查看右上角的優化面板</div>
+
+                <h3>2. 應用設計系統</h3>
+                <div class="code-block">// 在 HTML 中引入
+&lt;link rel="stylesheet" href="css-modules/advanced-layout.css"&gt;
+
+// 使用工具類別
+&lt;div class="grid grid-cols-3 gap-6"&gt;
+  &lt;div class="card p-6"&gt;內容&lt;/div&gt;
+&lt;/div&gt;</div>
+
+                <h3>3. 響應式設計</h3>
+                <div class="code-block">// 使用響應式工具類別
+&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"&gt;
+  &lt;div class="card"&gt;響應式卡片&lt;/div&gt;
+&lt;/div&gt;</div>
+            </div>
+
+            <!-- 最佳實踐 -->
+            <div class="section">
+                <h2>🎯 最佳實踐</h2>
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>建立設計系統</strong> - 使用統一的間距、顏色和字體變數
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>優先使用 Grid</strong> - 二維布局使用 CSS Grid，一維布局使用 Flexbox
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>響應式設計</strong> - 使用 clamp() 函數創建彈性間距和尺寸
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>視覺層次</strong> - 確保清晰的資訊架構和視覺層次
+                </div>
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>效能優化</strong> - 避免過度使用絕對定位，合理使用 transform
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 優化面板 -->
+    <div id="optimizationPanel" class="optimization-panel">
+        <div class="panel-header">
+            <h3>🎨 布局優化面板</h3>
+            <p>檢測結果和優化建議</p>
+        </div>
+        <div class="panel-body">
+            <div id="analysisResults">
+                <p>點擊「運行分析」開始檢測布局問題...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 模擬優化工具功能
+        function openOptimizationPanel() {
+            const panel = document.getElementById('optimizationPanel');
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function runAnalysis() {
+            const results = document.getElementById('analysisResults');
+            results.innerHTML = `
+                <div class="issue-item">
+                    <strong>Grid 布局問題</strong><br>
+                    發現 3 個 Grid 容器缺少適當的間距設定
+                </div>
+                <div class="issue-item">
+                    <strong>響應式設計</strong><br>
+                    部分圖片缺少響應式設計
+                </div>
+                <div class="recommendation-item">
+                    <strong>優化建議：建立設計系統</strong><br>
+                    使用統一的間距、顏色和字體變數
+                    <button class="copy-btn" onclick="copyCode('design-system')">複製代碼</button>
+                </div>
+                <div class="recommendation-item">
+                    <strong>優化建議：改善 Grid 布局</strong><br>
+                    使用現代 Grid 語法提升響應式效果
+                    <button class="copy-btn" onclick="copyCode('grid-layout')">複製代碼</button>
+                </div>
+            `;
+            openOptimizationPanel();
+        }
+
+        function copyCode(type) {
+            const codes = {
+                'design-system': `:root {
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+}`,
+                'grid-layout': `.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: start;
+    justify-items: center;
+}`
+            };
+            
+            navigator.clipboard.writeText(codes[type]).then(() => {
+                alert('代碼已複製到剪貼板！');
+            });
+        }
+
+        // 載入優化工具腳本
+        function loadOptimizer() {
+            const script = document.createElement('script');
+            script.src = 'layout-optimizer.js';
+            script.onload = () => {
+                console.log('🎨 布局優化工具已載入');
+                console.log('在控制台輸入：new LayoutOptimizer() 開始優化');
+            };
+            document.head.appendChild(script);
+        }
+
+        // 頁面載入完成後載入優化工具
+        document.addEventListener('DOMContentLoaded', loadOptimizer);
+    </script>
+</body>
+</html>

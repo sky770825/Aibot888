@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新控制面板 - AI網站術語</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .status-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .status-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .status-card h3 i {
+            margin-right: 10px;
+            color: #667eea;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .status-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .status-label {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .status-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .version-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .version-badge.outdated {
+            background: #dc3545;
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+
+        .btn-info {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .btn-info:hover {
+            background: #138496;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .log-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .log-container h3 {
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .log-container h3 i {
+            margin-right: 10px;
+            color: #667eea;
+        }
+
+        .log-content {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-cogs"></i> 更新控制面板</h1>
+            <p>AI網站術語自動更新管理系統</p>
+        </div>
+
+        <div class="content">
+            <div id="alertContainer"></div>
+
+            <div class="status-grid">
+                <div class="status-card">
+                    <h3><i class="fas fa-server"></i> 服務器狀態</h3>
+                    <div class="status-item">
+                        <span class="status-label">狀態</span>
+                        <span class="status-value" id="serverStatus">檢查中...</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">版本</span>
+                        <span class="status-value" id="serverVersion">-</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">運行時間</span>
+                        <span class="status-value" id="serverUptime">-</span>
+                    </div>
+                </div>
+
+                <div class="status-card">
+                    <h3><i class="fas fa-desktop"></i> 客戶端狀態</h3>
+                    <div class="status-item">
+                        <span class="status-label">版本</span>
+                        <span class="status-value" id="clientVersion">-</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">更新狀態</span>
+                        <span class="status-value" id="updateStatus">-</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">最後檢查</span>
+                        <span class="status-value" id="lastCheck">-</span>
+                    </div>
+                </div>
+
+                <div class="status-card">
+                    <h3><i class="fas fa-user-shield"></i> 認證狀態</h3>
+                    <div class="status-item">
+                        <span class="status-label">登入狀態</span>
+                        <span class="status-value" id="authStatus">檢查中...</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">用戶名</span>
+                        <span class="status-value" id="username">-</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">權限</span>
+                        <span class="status-value" id="userRole">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-primary" onclick="checkUpdate()">
+                    <i class="fas fa-sync-alt"></i> 檢查更新
+                </button>
+                <button class="btn btn-success" onclick="performUpdate()">
+                    <i class="fas fa-download"></i> 立即更新
+                </button>
+                <button class="btn btn-warning" onclick="backupCurrent()">
+                    <i class="fas fa-save"></i> 備份當前版本
+                </button>
+                <button class="btn btn-info" onclick="refreshStatus()">
+                    <i class="fas fa-refresh"></i> 刷新狀態
+                </button>
+                <a href="login.html" class="btn btn-danger">
+                    <i class="fas fa-sign-out-alt"></i> 重新登入
+                </a>
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> 返回網站
+                </a>
+            </div>
+
+            <div class="log-container">
+                <h3><i class="fas fa-terminal"></i> 系統日誌</h3>
+                <div class="log-content" id="logContent">
+                    系統啟動中...\n
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3000/api';
+        let updateInterval;
+
+        // 添加日誌
+        function addLog(message, type = 'info') {
+            const logContent = document.getElementById('logContent');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${message}\n`;
+            logContent.textContent += logEntry;
+            logContent.scrollTop = logContent.scrollHeight;
+        }
+
+        // 顯示提示訊息
+        function showAlert(message, type = 'info') {
+            const container = document.getElementById('alertContainer');
+            container.innerHTML = `
+                <div class="alert alert-${type}">
+                    <i class="fas fa-${type === 'error' ? 'exclamation-triangle' : type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                    ${message}
+                </div>
+            `;
+            setTimeout(() => container.innerHTML = '', 5000);
+        }
+
+        // 檢查服務器狀態
+        async function checkServerStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/health`, {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('serverStatus').textContent = '正常運行';
+                    document.getElementById('serverVersion').textContent = data.version;
+                    document.getElementById('serverUptime').textContent = 
+                        Math.floor(data.uptime / 60) + ' 分鐘';
+                    addLog('服務器狀態檢查完成');
+                } else {
+                    throw new Error('服務器狀態異常');
+                }
+            } catch (error) {
+                document.getElementById('serverStatus').textContent = '連接失敗';
+                addLog('服務器連接失敗: ' + error.message, 'error');
+            }
+        }
+
+        // 檢查認證狀態
+        async function checkAuthStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/auth/me`, {
+                    credentials: 'include'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('authStatus').textContent = '已登入';
+                    document.getElementById('username').textContent = data.user.username;
+                    document.getElementById('userRole').textContent = data.user.role;
+                    addLog(`用戶 ${data.user.username} 已登入 (${data.user.role})`);
+                } else {
+                    document.getElementById('authStatus').textContent = '未登入';
+                    addLog('用戶未登入，請先登入', 'warning');
+                }
+            } catch (error) {
+                document.getElementById('authStatus').textContent = '檢查失敗';
+                addLog('認證檢查失敗: ' + error.message, 'error');
+            }
+        }
+
+        // 檢查更新
+        async function checkUpdate() {
+            addLog('開始檢查更新...');
+            
+            try {
+                const response = await fetch(`${API_BASE}/check-update`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        clientVersion: '3.1.0',
+                        clientHash: 'test-hash'
+                    })
+                });
+
+                if (response.status === 401) {
+                    showAlert('需要登入才能檢查更新', 'error');
+                    addLog('檢查更新失敗: 需要登入', 'error');
+                    return;
+                }
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('updateStatus').textContent = 
+                        data.needsUpdate ? '需要更新' : '已是最新版本';
+                    document.getElementById('lastCheck').textContent = new Date().toLocaleTimeString();
+                    
+                    if (data.needsUpdate) {
+                        showAlert(`發現新版本 ${data.serverVersion}！`, 'warning');
+                        addLog(`發現新版本: ${data.serverVersion}`);
+                    } else {
+                        showAlert('已是最新版本', 'success');
+                        addLog('已是最新版本');
+                    }
+                } else {
+                    throw new Error(data.error || '檢查更新失敗');
+                }
+            } catch (error) {
+                showAlert('檢查更新失敗: ' + error.message, 'error');
+                addLog('檢查更新失敗: ' + error.message, 'error');
+            }
+        }
+
+        // 執行更新
+        async function performUpdate() {
+            addLog('開始執行更新...');
+            showAlert('更新功能需要實際的檔案替換，這裡只是示範', 'warning');
+            addLog('更新完成 (示範模式)');
+        }
+
+        // 備份當前版本
+        async function backupCurrent() {
+            addLog('開始備份當前版本...');
+            
+            try {
+                const response = await fetch(`${API_BASE}/backup`, {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+
+                if (response.status === 401) {
+                    showAlert('需要登入才能備份', 'error');
+                    addLog('備份失敗: 需要登入', 'error');
+                    return;
+                }
+
+                if (response.status === 403) {
+                    showAlert('需要管理員權限才能備份', 'error');
+                    addLog('備份失敗: 需要管理員權限', 'error');
+                    return;
+                }
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    showAlert('備份完成！', 'success');
+                    addLog('備份完成: ' + data.backupPath);
+                } else {
+                    throw new Error(data.error || '備份失敗');
+                }
+            } catch (error) {
+                showAlert('備份失敗: ' + error.message, 'error');
+                addLog('備份失敗: ' + error.message, 'error');
+            }
+        }
+
+        // 刷新狀態
+        async function refreshStatus() {
+            addLog('刷新系統狀態...');
+            await checkServerStatus();
+            await checkAuthStatus();
+            await checkUpdate();
+            addLog('狀態刷新完成');
+        }
+
+        // 初始化
+        async function init() {
+            addLog('初始化控制面板...');
+            await checkServerStatus();
+            await checkAuthStatus();
+            await checkUpdate();
+            
+            // 每30秒自動刷新狀態
+            updateInterval = setInterval(refreshStatus, 30000);
+            addLog('控制面板初始化完成');
+        }
+
+        // 頁面載入時初始化
+        document.addEventListener('DOMContentLoaded', init);
+
+        // 頁面卸載時清理
+        window.addEventListener('beforeunload', () => {
+            if (updateInterval) {
+                clearInterval(updateInterval);
+            }
+        });
+    </script>
+</body>
+</html>

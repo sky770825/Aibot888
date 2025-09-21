@@ -35,6 +35,11 @@
          =========================================== -->
     <title>AI開發網站術語大全 | 前端後端UI/UX設計完整指南</title>
     
+    <!-- 自動更新配置 -->
+    <meta name="app-version" content="3.1.0">
+    <!-- 遠端更新配置 -->
+    <script src="remote-client-config.js"></script>
+    
     <!-- ===========================================
          外部資源載入
          =========================================== -->
@@ -565,6 +570,25 @@
                                 </div>
                             </div>
                             
+                            <div class="command-card template-card">
+                                <div class="template-icon">💰</div>
+                                <h4>虛擬貨幣監控網站</h4>
+                                <p>實時價格追蹤、技術分析、市場趨勢、投資組合管理</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">實時價格</span>
+                                    <span class="feature-tag">技術分析</span>
+                                    <span class="feature-tag">市場趨勢</span>
+                                    <span class="feature-tag">投資組合</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="crypto-monitor">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="crypto-monitor-html">完整監控型</button>
+                                        <button class="copy-html-btn" data-template="crypto-trading-html">交易分析型</button>
+                                        <button class="copy-html-btn" data-template="crypto-portfolio-html">投資組合型</button>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="command-card template-card">
                                 <div class="template-icon">🎨</div>
                                 <h4>2025年設計示範</h4>
@@ -1448,6 +1472,128 @@
                     </div>
                 </div>
 
+                <!-- CSS布局優化檢測器 -->
+                <div class="tool-section">
+                    <h3 class="tool-title">
+                        <i class="fas fa-palette"></i>
+                        CSS布局優化檢測器
+                    </h3>
+                    <div class="tool-content">
+                        <div class="layout-optimizer">
+                            <div class="optimizer-intro">
+                                <p>🎨 專業級布局優化工具，自動檢測並提供改進建議</p>
+                                <div class="optimizer-features">
+                                    <span class="feature-tag">Grid 布局優化</span>
+                                    <span class="feature-tag">Flexbox 改善</span>
+                                    <span class="feature-tag">響應式設計</span>
+                                    <span class="feature-tag">視覺層次</span>
+                                    <span class="feature-tag">間距系統</span>
+                                </div>
+                            </div>
+                            
+                            <div class="optimizer-options">
+                                <label>檢測範圍：</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" value="grid-layout" checked> Grid 布局分析</label>
+                                    <label><input type="checkbox" value="flexbox-layout" checked> Flexbox 布局分析</label>
+                                    <label><input type="checkbox" value="responsive-design" checked> 響應式設計檢查</label>
+                                    <label><input type="checkbox" value="spacing-system" checked> 間距系統分析</label>
+                                    <label><input type="checkbox" value="visual-hierarchy" checked> 視覺層次檢查</label>
+                                    <label><input type="checkbox" value="typography" checked> 字體排版分析</label>
+                                    <label><input type="checkbox" value="color-scheme" checked> 配色方案檢查</label>
+                                    <label><input type="checkbox" value="accessibility" checked> 無障礙設計</label>
+                                </div>
+                            </div>
+                            
+                            <div class="optimizer-actions">
+                                <button id="runLayoutOptimizer" class="optimize-btn">
+                                    <i class="fas fa-magic"></i>
+                                    開始布局優化檢測
+                                </button>
+                                <button id="applyOptimizations" class="apply-btn" style="display: none;">
+                                    <i class="fas fa-check"></i>
+                                    一鍵應用優化
+                                </button>
+                                <button id="resetOptimizations" class="reset-btn" style="display: none;">
+                                    <i class="fas fa-undo"></i>
+                                    重置優化
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="layoutOptimizerResults" class="optimizer-results" style="display: none;">
+                            <div class="results-header">
+                                <h4>🎨 布局優化檢測結果</h4>
+                                <div class="results-actions">
+                                    <span id="optimizationScore" class="score-display">優化評分: 0/100</span>
+                                    <button id="copyOptimizationReport" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                        複製優化報告
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="optimization-summary">
+                                <div class="score-breakdown">
+                                    <div class="score-item">
+                                        <span>Grid 布局：</span>
+                                        <div class="score-bar">
+                                            <div id="gridScore" class="score-fill"></div>
+                                        </div>
+                                        <span id="gridScoreText">0/100</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span>Flexbox 布局：</span>
+                                        <div class="score-bar">
+                                            <div id="flexboxScore" class="score-fill"></div>
+                                        </div>
+                                        <span id="flexboxScoreText">0/100</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span>響應式設計：</span>
+                                        <div class="score-bar">
+                                            <div id="responsiveScore" class="score-fill"></div>
+                                        </div>
+                                        <span id="responsiveScoreText">0/100</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span>視覺層次：</span>
+                                        <div class="score-bar">
+                                            <div id="hierarchyScore" class="score-fill"></div>
+                                        </div>
+                                        <span id="hierarchyScoreText">0/100</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="optimizationIssues" class="optimization-issues"></div>
+                            
+                            <div id="optimizationRecommendations" class="optimization-recommendations" style="display: none;">
+                                <h5>💡 優化建議</h5>
+                                <div id="recommendationsList" class="recommendations-list"></div>
+                            </div>
+                            
+                            <div id="optimizationCode" class="optimization-code" style="display: none;">
+                                <h5>🔧 優化代碼</h5>
+                                <div class="code-tabs">
+                                    <button class="code-tab active" data-tab="css">CSS 優化</button>
+                                    <button class="code-tab" data-tab="html">HTML 結構</button>
+                                    <button class="code-tab" data-tab="js">JavaScript 優化</button>
+                                </div>
+                                <div class="code-content">
+                                    <div id="cssCode" class="code-panel active"></div>
+                                    <div id="htmlCode" class="code-panel"></div>
+                                    <div id="jsCode" class="code-panel"></div>
+                                </div>
+                                <button id="copyOptimizationCode" class="copy-code-btn">
+                                    <i class="fas fa-copy"></i>
+                                    複製優化代碼
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- 手機版適配檢查器 -->
                 <div class="tool-section">
                     <h3 class="tool-title">
@@ -2264,5 +2410,876 @@
          =========================================== -->
     <script src="script.js" defer></script>
     <script src="project-tools-fixed.js" defer></script>
+    <script src="layout-optimizer-integrated.js" defer></script>
+    
+    <!-- 內聯測試腳本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔍 內聯腳本載入完成');
+            
+            // 等待一段時間確保其他腳本載入完成
+            setTimeout(function() {
+                const runBtn = document.getElementById('runLayoutOptimizer');
+                console.log('🔍 查找按鈕:', runBtn);
+                
+                if (runBtn) {
+                    console.log('✅ 找到按鈕，添加事件監聽器');
+                    
+                    // 移除可能存在的舊事件監聽器
+                    const newBtn = runBtn.cloneNode(true);
+                    runBtn.parentNode.replaceChild(newBtn, runBtn);
+                    
+                    // 添加新的事件監聽器
+                    newBtn.addEventListener('click', function(e) {
+                        console.log('🖱️ 按鈕被點擊！');
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // 開始完整的布局分析
+                        runCompleteLayoutAnalysis();
+                    });
+                    
+                    console.log('✅ 事件監聽器添加完成');
+                } else {
+                    console.log('❌ 未找到 runLayoutOptimizer 按鈕');
+                }
+            }, 1000);
+        });
+        
+        // 完整的布局分析功能
+        function runCompleteLayoutAnalysis() {
+            console.log('🔍 開始完整布局分析...');
+            
+            // 顯示載入狀態
+            const runBtn = document.getElementById('runLayoutOptimizer');
+            if (runBtn) {
+                runBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 分析中...';
+                runBtn.disabled = true;
+            }
+            
+            // 模擬分析過程
+            setTimeout(() => {
+                const analysisResults = performLayoutAnalysis();
+                displayAnalysisResults(analysisResults);
+                
+                // 恢復按鈕狀態
+                if (runBtn) {
+                    runBtn.innerHTML = '<i class="fas fa-magic"></i> 開始布局優化檢測';
+                    runBtn.disabled = false;
+                }
+            }, 2000);
+        }
+        
+        // 執行布局分析
+        function performLayoutAnalysis() {
+            const results = {
+                scores: {
+                    grid: 0,
+                    flexbox: 0,
+                    responsive: 0,
+                    hierarchy: 0,
+                    spacing: 0,
+                    typography: 0,
+                    accessibility: 0,
+                    overall: 0
+                },
+                issues: [],
+                recommendations: [],
+                code: {
+                    css: '',
+                    html: '',
+                    js: ''
+                }
+            };
+            
+            // 分析 Grid 布局
+            const gridAnalysis = analyzeGridLayout();
+            results.scores.grid = gridAnalysis.score;
+            results.issues.push(...gridAnalysis.issues);
+            results.recommendations.push(...gridAnalysis.recommendations);
+            
+            // 分析 Flexbox 布局
+            const flexboxAnalysis = analyzeFlexboxLayout();
+            results.scores.flexbox = flexboxAnalysis.score;
+            results.issues.push(...flexboxAnalysis.issues);
+            results.recommendations.push(...flexboxAnalysis.recommendations);
+            
+            // 分析響應式設計
+            const responsiveAnalysis = analyzeResponsiveDesign();
+            results.scores.responsive = responsiveAnalysis.score;
+            results.issues.push(...responsiveAnalysis.issues);
+            results.recommendations.push(...responsiveAnalysis.recommendations);
+            
+            // 分析視覺層次
+            const hierarchyAnalysis = analyzeVisualHierarchy();
+            results.scores.hierarchy = hierarchyAnalysis.score;
+            results.issues.push(...hierarchyAnalysis.issues);
+            results.recommendations.push(...hierarchyAnalysis.recommendations);
+            
+            // 分析間距系統
+            const spacingAnalysis = analyzeSpacingSystem();
+            results.scores.spacing = spacingAnalysis.score;
+            results.issues.push(...spacingAnalysis.issues);
+            results.recommendations.push(...spacingAnalysis.recommendations);
+            
+            // 分析字體排版
+            const typographyAnalysis = analyzeTypography();
+            results.scores.typography = typographyAnalysis.score;
+            results.issues.push(...typographyAnalysis.issues);
+            results.recommendations.push(...typographyAnalysis.recommendations);
+            
+            // 分析無障礙設計
+            const accessibilityAnalysis = analyzeAccessibility();
+            results.scores.accessibility = accessibilityAnalysis.score;
+            results.issues.push(...accessibilityAnalysis.issues);
+            results.recommendations.push(...accessibilityAnalysis.recommendations);
+            
+            // 計算總分
+            const scores = Object.values(results.scores).filter(score => score > 0);
+            results.scores.overall = Math.round(scores.reduce((sum, score) => sum + score, 0) / scores.length);
+            
+            // 生成優化代碼
+            results.code = generateOptimizationCode(results);
+            
+            return results;
+        }
+        
+        // Grid 布局分析
+        function analyzeGridLayout() {
+            const issues = [];
+            const recommendations = [];
+            let score = 100;
+            
+            // 檢查 Grid 使用情況
+            const gridElements = document.querySelectorAll('[style*="display: grid"], [style*="display:grid"]');
+            const cssGridElements = getElementsWithCSSGrid();
+            
+            if (gridElements.length === 0 && cssGridElements.length === 0) {
+                issues.push({
+                    type: 'warning',
+                    title: '未使用 Grid 布局',
+                    description: '建議使用 CSS Grid 來創建複雜的二維布局',
+                    impact: 'medium'
+                });
+                score -= 30;
+                
+                recommendations.push({
+                    title: '實施 CSS Grid 布局',
+                    description: '使用 CSS Grid 創建現代化的二維布局',
+                    priority: 'high',
+                    code: `.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: start;
+    justify-items: center;
+}`
+                });
+            }
+            
+            // 檢查響應式 Grid
+            const hasResponsiveGrid = checkResponsiveGrid();
+            if (!hasResponsiveGrid && (gridElements.length > 0 || cssGridElements.length > 0)) {
+                issues.push({
+                    type: 'warning',
+                    title: 'Grid 布局缺少響應式設計',
+                    description: '建議使用 auto-fit 和 minmax() 創建響應式網格',
+                    impact: 'medium'
+                });
+                score -= 15;
+                
+                recommendations.push({
+                    title: '添加響應式 Grid',
+                    description: '使用響應式 Grid 語法適配不同螢幕尺寸',
+                    priority: 'medium',
+                    code: `@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}`
+                });
+            }
+            
+            return { score: Math.max(0, score), issues, recommendations };
+        }
+        
+        // Flexbox 布局分析
+        function analyzeFlexboxLayout() {
+            const issues = [];
+            const recommendations = [];
+            let score = 100;
+            
+            const flexElements = document.querySelectorAll('[style*="display: flex"], [style*="display:flex"]');
+            const cssFlexElements = getElementsWithCSSFlexbox();
+            
+            if (flexElements.length === 0 && cssFlexElements.length === 0) {
+                issues.push({
+                    type: 'info',
+                    title: '未使用 Flexbox 布局',
+                    description: '建議使用 Flexbox 來創建一維布局',
+                    impact: 'low'
+                });
+                score -= 10;
+                
+                recommendations.push({
+                    title: '實施 Flexbox 布局',
+                    description: '使用 Flexbox 創建靈活的一維布局',
+                    priority: 'medium',
+                    code: `.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}`
+                });
+            }
+            
+            return { score: Math.max(0, score), issues, recommendations };
+        }
+        
+        // 響應式設計分析
+        function analyzeResponsiveDesign() {
+            const issues = [];
+            const recommendations = [];
+            let score = 100;
+            
+            // 檢查 viewport meta 標籤
+            const viewport = document.querySelector('meta[name="viewport"]');
+            if (!viewport) {
+                issues.push({
+                    type: 'error',
+                    title: '缺少 viewport meta 標籤',
+                    description: '需要添加 viewport meta 標籤以支援響應式設計',
+                    impact: 'high'
+                });
+                score -= 40;
+                
+                recommendations.push({
+                    title: '添加 viewport meta 標籤',
+                    description: '在 head 中添加 viewport meta 標籤',
+                    priority: 'high',
+                    code: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+                });
+            }
+            
+            // 檢查媒體查詢
+            const hasMediaQueries = checkMediaQueries();
+            if (!hasMediaQueries) {
+                issues.push({
+                    type: 'warning',
+                    title: '缺少媒體查詢',
+                    description: '建議添加媒體查詢以支援不同螢幕尺寸',
+                    impact: 'high'
+                });
+                score -= 30;
+                
+                recommendations.push({
+                    title: '添加響應式媒體查詢',
+                    description: '使用媒體查詢創建響應式設計',
+                    priority: 'high',
+                    code: `@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}`
+                });
+            }
+            
+            return { score: Math.max(0, score), issues, recommendations };
+        }
+        
+        // 視覺層次分析
+        function analyzeVisualHierarchy() {
+            const issues = [];
+            const recommendations = [];
+            let score = 100;
+            
+            // 檢查標題層次
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            const h1Count = document.querySelectorAll('h1').length;
+            
+            if (h1Count === 0) {
+                issues.push({
+                    type: 'error',
+                    title: '缺少 h1 標題',
+                    description: '頁面應該有且僅有一個 h1 標題',
+                    impact: 'high'
+                });
+                score -= 30;
+                
+                recommendations.push({
+                    title: '添加 h1 標題',
+                    description: '為頁面添加主要的 h1 標題',
+                    priority: 'high',
+                    code: `<h1>頁面主要標題</h1>`
+                });
+            } else if (h1Count > 1) {
+                issues.push({
+                    type: 'warning',
+                    title: '多個 h1 標題',
+                    description: '頁面應該只有一個 h1 標題',
+                    impact: 'medium'
+                });
+                score -= 15;
+            }
+            
+            // 檢查字體大小層次
+            if (headings.length > 0) {
+                const fontSizeConsistency = checkFontSizeConsistency();
+                if (fontSizeConsistency < 0.6) {
+                    issues.push({
+                        type: 'warning',
+                        title: '字體大小層次不明確',
+                        description: '建議建立清晰的字體大小層次',
+                        impact: 'medium'
+                    });
+                    score -= 20;
+                    
+                    recommendations.push({
+                        title: '建立字體層次系統',
+                        description: '使用統一的字體大小層次',
+                        priority: 'medium',
+                        code: `h1 { font-size: 2.5rem; font-weight: 700; }
+h2 { font-size: 2rem; font-weight: 600; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+p { font-size: 1rem; line-height: 1.6; }`
+                    });
+                }
+            }
+            
+            return { score: Math.max(0, score), issues, recommendations };
+        }
+        
+        // 間距系統分析
+        function analyzeSpacingSystem() {
+            const issues = [];
+            const recommendations = [];
+            let score = 100;
+            
+            // 檢查 CSS 變數使用
+            const hasSpacingVariables = checkSpacingVariables();
+            if (!hasSpacingVariables) {
+                issues.push({
+                    type: 'warning',
+                    title: '缺少間距變數系統',
+                    description: '建議使用 CSS 變數建立統一的間距系統',
+                    impact: 'medium'
+                });
+                score -= 25;
+                
+                recommendations.push({
+                    title: '建立間距變數系統',
+                    description: '使用 CSS 變數統一管理間距',
+                    priority: 'medium',
+                    code: `:root {
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+}`
+                });
+            }
+            
+            return { score: Math.max(0, score), issues, recommendations };
+        }
+        
+        // 字體排版分析
+        function analyzeTypography() {
+            const issues = [];
+            const recommendations = [];
+            let score = 100;
+            
+            // 檢查行高設定
+            const elements = document.querySelectorAll('p, div, span');
+            let hasLineHeight = 0;
+            elements.forEach(el => {
+                const computedStyle = window.getComputedStyle(el);
+                if (computedStyle.lineHeight !== 'normal') {
+                    hasLineHeight++;
+                }
+            });
+            
+            if (hasLineHeight < elements.length * 0.3) {
+                issues.push({
+                    type: 'warning',
+                    title: '行高設定不足',
+                    description: '建議為文字元素設定適當的行高',
+                    impact: 'medium'
+                });
+                score -= 20;
+                
+                recommendations.push({
+                    title: '優化行高設定',
+                    description: '為文字元素設定適當的行高',
+                    priority: 'medium',
+                    code: `p, .text {
+    line-height: 1.6;
+    font-size: 1rem;
+}`
+                });
+            }
+            
+            return { score: Math.max(0, score), issues, recommendations };
+        }
+        
+        // 無障礙設計分析
+        function analyzeAccessibility() {
+            const issues = [];
+            const recommendations = [];
+            let score = 100;
+            
+            // 檢查 alt 屬性
+            const images = document.querySelectorAll('img');
+            const imagesWithoutAlt = Array.from(images).filter(img => !img.alt);
+            
+            if (imagesWithoutAlt.length > 0) {
+                issues.push({
+                    type: 'error',
+                    title: '圖片缺少 alt 屬性',
+                    description: `${imagesWithoutAlt.length} 個圖片缺少 alt 屬性`,
+                    impact: 'high'
+                });
+                score -= imagesWithoutAlt.length * 10;
+                
+                recommendations.push({
+                    title: '添加圖片 alt 屬性',
+                    description: '為所有圖片添加描述性的 alt 屬性',
+                    priority: 'high',
+                    code: `<img src="image.jpg" alt="描述圖片內容">`
+                });
+            }
+            
+            return { score: Math.max(0, score), issues, recommendations };
+        }
+        
+        // 輔助函數
+        function getElementsWithCSSGrid() {
+            const elements = document.querySelectorAll('*');
+            return Array.from(elements).filter(el => {
+                const computedStyle = window.getComputedStyle(el);
+                return computedStyle.display === 'grid';
+            });
+        }
+        
+        function getElementsWithCSSFlexbox() {
+            const elements = document.querySelectorAll('*');
+            return Array.from(elements).filter(el => {
+                const computedStyle = window.getComputedStyle(el);
+                return computedStyle.display === 'flex';
+            });
+        }
+        
+        function checkResponsiveGrid() {
+            // 簡化版檢查
+            return document.querySelectorAll('[style*="auto-fit"], [style*="minmax"]').length > 0;
+        }
+        
+        function checkMediaQueries() {
+            // 簡化版檢查
+            return document.querySelectorAll('style, link[rel="stylesheet"]').length > 0;
+        }
+        
+        function checkFontSizeConsistency() {
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            if (headings.length < 2) return 1;
+            
+            const sizes = Array.from(headings).map(h => {
+                const computedStyle = window.getComputedStyle(h);
+                return parseFloat(computedStyle.fontSize);
+            });
+            
+            // 檢查是否有遞減的趨勢
+            let consistent = true;
+            for (let i = 1; i < sizes.length; i++) {
+                if (sizes[i] >= sizes[i-1]) {
+                    consistent = false;
+                    break;
+                }
+            }
+            return consistent ? 1 : 0.5;
+        }
+        
+        function checkSpacingVariables() {
+            // 簡化版檢查
+            return document.querySelector('style') && 
+                   document.querySelector('style').textContent.includes('--spacing');
+        }
+        
+        // 生成優化代碼
+        function generateOptimizationCode(results) {
+            const css = `/* CSS 布局優化建議 */
+
+/* 1. 建立設計系統 */
+:root {
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-text: #1f2937;
+    --color-text-light: #6b7280;
+    --color-bg: #ffffff;
+    --color-bg-secondary: #f8fafc;
+    
+    --border-radius: 8px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. 現代化 Grid 布局 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    align-items: start;
+    justify-items: center;
+}
+
+/* 3. Flexbox 布局 */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+/* 4. 響應式設計 */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+    
+    .flex-container {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
+
+/* 5. 視覺層次優化 */
+h1 { 
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    line-height: 1.2; 
+    color: var(--color-text);
+}
+h2 { 
+    font-size: 2rem; 
+    font-weight: 600; 
+    line-height: 1.3; 
+    color: var(--color-text);
+}
+h3 { 
+    font-size: 1.5rem; 
+    font-weight: 600; 
+    line-height: 1.4; 
+    color: var(--color-text);
+}
+p { 
+    font-size: 1rem; 
+    line-height: 1.6; 
+    color: var(--color-text-light);
+}
+
+/* 6. 卡片設計 */
+.card {
+    background: var(--color-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: var(--spacing-lg);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* 7. 按鈕設計 */
+.btn {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+}`;
+
+            const html = `<!-- HTML 結構優化建議 -->
+
+<!-- 1. 語義化標籤 -->
+<main class="main-content">
+    <section class="hero-section">
+        <h1>主要標題</h1>
+        <p>描述文字</p>
+    </section>
+    
+    <section class="features-section">
+        <h2>功能特色</h2>
+        <div class="grid-container">
+            <article class="card">
+                <h3>功能 1</h3>
+                <p>功能描述</p>
+            </article>
+            <article class="card">
+                <h3>功能 2</h3>
+                <p>功能描述</p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<!-- 2. 無障礙設計 -->
+<img src="image.jpg" alt="描述圖片內容" loading="lazy">
+<button aria-label="關閉對話框">×</button>
+
+<!-- 3. 響應式圖片 -->
+<picture>
+    <source media="(min-width: 768px)" srcset="large.jpg">
+    <source media="(min-width: 480px)" srcset="medium.jpg">
+    <img src="small.jpg" alt="響應式圖片">
+</picture>`;
+
+            const js = `// JavaScript 優化建議
+
+// 1. 響應式檢測
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// 2. 動態載入
+function loadComponent(componentName) {
+    return import(\`./components/\${componentName}.js\`);
+}
+
+// 3. 效能優化
+const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
+// 4. 事件委派
+document.addEventListener('click', (e) => {
+    if (e.target.matches('.card')) {
+        handleCardClick(e.target);
+    }
+});
+
+// 5. 響應式處理
+window.addEventListener('resize', debounce(() => {
+    updateLayout();
+}, 250));`;
+
+            return { css, html, js };
+        }
+        
+        // 顯示分析結果
+        function displayAnalysisResults(results) {
+            const resultsDiv = document.getElementById('layoutOptimizerResults');
+            if (!resultsDiv) {
+                console.log('❌ 未找到結果容器');
+                return;
+            }
+            
+            resultsDiv.style.display = 'block';
+            
+            // 更新評分
+            updateScores(results.scores);
+            
+            // 顯示問題
+            displayIssues(results.issues);
+            
+            // 顯示建議
+            displayRecommendations(results.recommendations);
+            
+            // 顯示代碼
+            displayCode(results.code);
+            
+            // 顯示操作按鈕
+            document.getElementById('applyOptimizations').style.display = 'inline-flex';
+            document.getElementById('resetOptimizations').style.display = 'inline-flex';
+            
+            console.log('✅ 分析結果已顯示');
+        }
+        
+        // 更新評分
+        function updateScores(scores) {
+            const scoreElement = document.getElementById('optimizationScore');
+            if (scoreElement) {
+                scoreElement.textContent = `優化評分: ${scores.overall}/100`;
+            }
+            
+            // 更新各項分數
+            updateScoreBar('gridScore', scores.grid);
+            updateScoreBar('flexboxScore', scores.flexbox);
+            updateScoreBar('responsiveScore', scores.responsive);
+            updateScoreBar('hierarchyScore', scores.hierarchy);
+        }
+        
+        function updateScoreBar(elementId, score) {
+            const scoreFill = document.getElementById(elementId);
+            const scoreText = document.getElementById(elementId + 'Text');
+            
+            if (scoreFill) {
+                scoreFill.style.width = `${score}%`;
+            }
+            if (scoreText) {
+                scoreText.textContent = `${score}/100`;
+            }
+        }
+        
+        // 顯示問題
+        function displayIssues(issues) {
+            const issuesDiv = document.getElementById('optimizationIssues');
+            if (!issuesDiv) return;
+            
+            issuesDiv.innerHTML = '';
+            
+            if (issues.length === 0) {
+                issuesDiv.innerHTML = '<div class="no-issues">🎉 沒有發現布局問題！</div>';
+                return;
+            }
+            
+            issues.forEach(issue => {
+                const issueDiv = document.createElement('div');
+                issueDiv.className = 'issue-item';
+                
+                const priorityClass = issue.impact === 'high' ? 'error' : 
+                                     issue.impact === 'medium' ? 'warning' : 'info';
+                
+                issueDiv.innerHTML = `
+                    <h5 class="${priorityClass}">${issue.title}</h5>
+                    <p>${issue.description}</p>
+                `;
+                
+                issuesDiv.appendChild(issueDiv);
+            });
+        }
+        
+        // 顯示建議
+        function displayRecommendations(recommendations) {
+            const recommendationsDiv = document.getElementById('optimizationRecommendations');
+            const recommendationsList = document.getElementById('recommendationsList');
+            
+            if (!recommendationsDiv || !recommendationsList) return;
+            
+            if (recommendations.length === 0) {
+                recommendationsDiv.style.display = 'none';
+                return;
+            }
+            
+            recommendationsDiv.style.display = 'block';
+            recommendationsList.innerHTML = '';
+            
+            recommendations.forEach(rec => {
+                const recDiv = document.createElement('div');
+                recDiv.className = 'recommendation-item';
+                
+                recDiv.innerHTML = `
+                    <h6>${rec.title}</h6>
+                    <p>${rec.description}</p>
+                    ${rec.code ? `<pre><code>${rec.code}</code></pre>` : ''}
+                `;
+                
+                recommendationsList.appendChild(recDiv);
+            });
+        }
+        
+        // 顯示代碼
+        function displayCode(code) {
+            const codeDiv = document.getElementById('optimizationCode');
+            const cssCode = document.getElementById('cssCode');
+            const htmlCode = document.getElementById('htmlCode');
+            const jsCode = document.getElementById('jsCode');
+            
+            if (!codeDiv || !cssCode || !htmlCode || !jsCode) return;
+            
+            codeDiv.style.display = 'block';
+            
+            cssCode.innerHTML = `<pre><code>${code.css}</code></pre>`;
+            htmlCode.innerHTML = `<pre><code>${code.html}</code></pre>`;
+            jsCode.innerHTML = `<pre><code>${code.js}</code></pre>`;
+        }
+        
+        // 添加代碼標籤切換功能
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('code-tab')) {
+                const tabName = e.target.dataset.tab;
+                switchCodeTab(tabName);
+            }
+        });
+        
+        function switchCodeTab(tabName) {
+            // 移除所有 active 類
+            document.querySelectorAll('.code-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.code-panel').forEach(panel => panel.classList.remove('active'));
+            
+            // 添加 active 類到選中的標籤和面板
+            const activeTab = document.querySelector(`[data-tab="${tabName}"]`);
+            const activePanel = document.getElementById(`${tabName}Code`);
+            
+            if (activeTab) activeTab.classList.add('active');
+            if (activePanel) activePanel.classList.add('active');
+        }
+        
+        // 添加複製功能
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'copyOptimizationCode') {
+                const activeTab = document.querySelector('.code-tab.active');
+                if (activeTab) {
+                    const tabName = activeTab.dataset.tab;
+                    const codePanel = document.getElementById(`${tabName}Code`);
+                    if (codePanel) {
+                        const code = codePanel.textContent;
+                        navigator.clipboard.writeText(code).then(() => {
+                            alert('代碼已複製到剪貼板！');
+                        });
+                    }
+                }
+            }
+        });
+        
+    </script>
+    
+    <!-- 自動更新器 -->
+    <script src="client-updater.js" defer></script>
+    <script defer>
+        // 初始化自動更新器
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.AutoUpdater) {
+                window.autoUpdater = new window.AutoUpdater(window.AUTO_UPDATE_CONFIG);
+                
+                // 監聽更新事件
+                window.autoUpdater.onUpdate(function(event, data) {
+                    console.log('更新事件:', event, data);
+                });
+            }
+        });
+    </script>
 </body>
 </html>

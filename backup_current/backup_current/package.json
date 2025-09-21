@@ -1,0 +1,46 @@
+{
+  "name": "ai-website-terminology",
+  "version": "3.0.0",
+  "description": "AI開發網站術語大全 - 優化版",
+  "main": "index-optimized.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "node auto-optimize.js",
+    "optimize": "node auto-optimize.js",
+    "analyze": "node analyze-bundle.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "ai",
+    "web-development",
+    "terminology",
+    "javascript",
+    "html",
+    "css",
+    "project-analyzer"
+  ],
+  "author": "AI開發術語網站",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.0",
+    "html-minifier-terser": "^7.2.0",
+    "terser": "^5.19.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/ai-website-terminology.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/ai-website-terminology/issues"
+  },
+  "homepage": "https://your-username.github.io/ai-website-terminology"
+}

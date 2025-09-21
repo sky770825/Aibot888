@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一鍵部署到 Vercel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: white;
+            color: #333;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .deploy-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+        .deploy-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        .steps {
+            text-align: left;
+            margin: 30px 0;
+        }
+        .step {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 一鍵部署到 Vercel</h1>
+        <p>AI網站術語自動更新系統</p>
+        
+        <a href="https://vercel.com/new" class="deploy-button" target="_blank">
+            🚀 立即部署到 Vercel
+        </a>
+        
+        <div class="highlight">
+            <strong>💡 提示：</strong> 點擊按鈕後，上傳 <code>vercel-deploy</code> 資料夾中的所有檔案
+        </div>
+        
+        <div class="steps">
+            <h3>📋 部署步驟：</h3>
+            
+            <div class="step">
+                <strong>步驟 1：</strong> 點擊上方按鈕前往 Vercel
+            </div>
+            
+            <div class="step">
+                <strong>步驟 2：</strong> 註冊/登入 Vercel 帳號
+            </div>
+            
+            <div class="step">
+                <strong>步驟 3：</strong> 點擊 "New Project"
+            </div>
+            
+            <div class="step">
+                <strong>步驟 4：</strong> 上傳 <code>vercel-deploy</code> 資料夾
+            </div>
+            
+            <div class="step">
+                <strong>步驟 5：</strong> 點擊 "Deploy" 完成部署
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <strong>🎯 部署完成後：</strong><br>
+            • 訪問您的 Vercel 網址<br>
+            • 使用 <code>admin/admin123</code> 登入<br>
+            • 享受自動更新功能！
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <h3>📁 需要上傳的檔案：</h3>
+            <ul style="text-align: left; display: inline-block;">
+                <li>remote-update-server.js</li>
+                <li>package.json</li>
+                <li>vercel.json</li>
+                <li>login.html</li>
+                <li>index.html</li>
+                <li>styles.css</li>
+                <li>script.js</li>
+                <li>client-updater.js</li>
+                <li>remote-client-config.js</li>
+                <li>update-control.html</li>
+                <li>test-login.html</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

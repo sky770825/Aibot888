@@ -35,6 +35,17 @@
          =========================================== -->
     <title>AI開發網站術語大全 | 前端後端UI/UX設計完整指南</title>
     
+    <!-- 自動更新配置 -->
+    <meta name="app-version" content="3.1.0">
+    <script>
+        window.AUTO_UPDATE_CONFIG = {
+            serverUrl: 'http://localhost:3000',
+            checkInterval: 300000, // 5分鐘檢查一次
+            autoUpdate: false,    // 手動確認更新
+            backupBeforeUpdate: true
+        };
+    </script>
+    
     <!-- ===========================================
          外部資源載入
          =========================================== -->
@@ -2264,5 +2275,21 @@
          =========================================== -->
     <script src="script.js" defer></script>
     <script src="project-tools-fixed.js" defer></script>
+    
+    <!-- 自動更新器 -->
+    <script src="client-updater.js" defer></script>
+    <script defer>
+        // 初始化自動更新器
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.AutoUpdater) {
+                window.autoUpdater = new window.AutoUpdater(window.AUTO_UPDATE_CONFIG);
+                
+                // 監聽更新事件
+                window.autoUpdater.onUpdate(function(event, data) {
+                    console.log('更新事件:', event, data);
+                });
+            }
+        });
+    </script>
 </body>
 </html>

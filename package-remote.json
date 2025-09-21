@@ -1,0 +1,30 @@
+{
+  "name": "ai-website-remote-updater",
+  "version": "1.0.0",
+  "description": "AI網站術語遠端自動更新系統",
+  "main": "remote-update-server.js",
+  "scripts": {
+    "start": "node remote-update-server.js",
+    "dev": "nodemon remote-update-server.js",
+    "build": "echo 'No build step required'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "auto-update",
+    "remote-deployment",
+    "ai-website",
+    "terminology",
+    "vercel",
+    "heroku"
+  ],
+  "author": "AI開發術語網站",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "express-session": "^1.17.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

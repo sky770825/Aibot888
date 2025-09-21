@@ -1,0 +1,31 @@
+{
+  "name": "ai-website-terminology-updater",
+  "version": "1.0.0",
+  "description": "AI網站術語專案自動更新系統",
+  "main": "update-server.js",
+  "scripts": {
+    "start": "node update-server.js",
+    "dev": "nodemon update-server.js",
+    "build": "echo 'No build step required'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "auto-update",
+    "version-control",
+    "deployment",
+    "ai-website",
+    "terminology"
+  ],
+  "author": "AI開發術語網站",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

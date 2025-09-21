@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 CSS布局優化檢測器 - 演示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .demo-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .demo-section h2 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .demo-section p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .demo-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .demo-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .demo-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .demo-btn.secondary {
+            background: #6b7280;
+        }
+
+        .demo-btn.secondary:hover {
+            background: #4b5563;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #1f2937;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .code-example {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 CSS布局優化檢測器</h1>
+            <p>專業級布局優化工具，直接在網站中檢測並提供改進建議</p>
+        </div>
+
+        <div class="content">
+            <!-- 功能特色 -->
+            <div class="demo-section">
+                <h2>✨ 功能特色</h2>
+                <p>這個整合版的布局優化檢測器提供了完整的分析功能，讓您直接在網站中使用，無需額外的批次檔或工具。</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>自動檢測</h3>
+                        <p>智能檢測 Grid、Flexbox、響應式設計等布局問題，提供詳細的分析報告</p>
+                        <span class="status success">已整合</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>優化建議</h3>
+                        <p>基於檢測結果提供具體的 CSS 代碼建議和最佳實踐指導</p>
+                        <span class="status success">已整合</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>一鍵應用</h3>
+                        <p>自動生成優化代碼，支援一鍵複製和應用改進建議</p>
+                        <span class="status success">已整合</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>評分系統</h3>
+                        <p>提供詳細的評分報告，幫助您了解布局的優化程度</p>
+                        <span class="status success">已整合</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>響應式檢查</h3>
+                        <p>檢測和優化各種裝置的顯示效果，確保跨平台兼容性</p>
+                        <span class="status success">已整合</span>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>視覺層次</h3>
+                        <p>分析並改善視覺層次和空間感，提升用戶體驗</p>
+                        <span class="status success">已整合</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 使用方式 -->
+            <div class="demo-section">
+                <h2>🚀 使用方式</h2>
+                <p>現在您可以直接在網站中使用布局優化檢測器，無需任何額外設定：</p>
+                
+                <div class="demo-buttons">
+                    <button class="demo-btn" onclick="openMainSite()">
+                        🌐 開啟主網站
+                    </button>
+                    <button class="demo-btn secondary" onclick="showCodeExample()">
+                        💻 查看代碼範例
+                    </button>
+                </div>
+
+                <div id="codeExample" style="display: none;">
+                    <h3>代碼整合範例：</h3>
+                    <div class="code-example">
+&lt;!-- 在 HTML 中引入 --&gt;
+&lt;script src="layout-optimizer-integrated.js" defer&gt;&lt;/script&gt;
+
+&lt;!-- 在專案工具頁面中使用 --&gt;
+&lt;button id="runLayoutOptimizer"&gt;開始布局優化檢測&lt;/button&gt;
+                    </div>
+                </div>
+            </div>
+
+            <!-- 檢測項目 -->
+            <div class="demo-section">
+                <h2>🔍 檢測項目</h2>
+                <p>布局優化檢測器會自動檢查以下項目：</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Grid 布局分析</h3>
+                        <p>檢查 CSS Grid 的使用情況、語法正確性和響應式設計</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Flexbox 布局分析</h3>
+                        <p>分析 Flexbox 的配置和對齊設定是否合理</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>響應式設計檢查</h3>
+                        <p>驗證 viewport 設定、媒體查詢和流動式布局</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>間距系統分析</h3>
+                        <p>檢查間距變數的使用和一致性</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>視覺層次檢查</h3>
+                        <p>分析標題層次、字體大小和對比度</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>無障礙設計</h3>
+                        <p>檢查 alt 屬性、標題結構等無障礙元素</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 優化建議 -->
+            <div class="demo-section">
+                <h2>💡 優化建議範例</h2>
+                <p>檢測器會根據發現的問題提供具體的優化建議：</p>
+                
+                <div class="code-example">
+/* 建立設計系統 */
+:root {
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-text: #1f2937;
+}
+
+/* 現代化 Grid 布局 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🎨 CSS布局優化檢測器 - 讓您的網站更加美觀和直觀</p>
+        </div>
+    </div>
+
+    <script>
+        function openMainSite() {
+            window.open('index.html#project-tools', '_blank');
+        }
+
+        function showCodeExample() {
+            const codeExample = document.getElementById('codeExample');
+            if (codeExample.style.display === 'none') {
+                codeExample.style.display = 'block';
+            } else {
+                codeExample.style.display = 'none';
+            }
+        }
+
+        // 頁面載入完成後的提示
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎨 CSS布局優化檢測器演示頁面已載入');
+            console.log('點擊「開啟主網站」按鈕來體驗完整功能');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <!-- ===========================================
+         META 標籤與基本設定
+         =========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI開發網站術語總整理，包含前端、後端、UI/UX設計等專業術語和AI指令模板，幫助開發者快速掌握現代網頁技術">
+    <meta name="keywords" content="AI開發,網頁設計,術語,前端開發,後端開發,UI/UX,響應式設計,程式設計,技術詞彙,開發者工具">
+    <meta name="author" content="AI開發術語網站">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sky770825.github.io/Aibot888/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sky770825.github.io/Aibot888/">
+    <meta property="og:title" content="AI開發網站術語 - 專業網頁設計">
+    <meta property="og:description" content="AI開發網站術語總整理，包含前端、後端、UI/UX設計等專業術語和AI指令模板，幫助開發者快速掌握現代網頁技術">
+    <meta property="og:image" content="https://sky770825.github.io/Aibot888/images/og-image.jpg">
+    <meta property="og:site_name" content="AI開發術語網站">
+    <meta property="og:locale" content="zh_TW">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://sky770825.github.io/Aibot888/">
+    <meta name="twitter:title" content="AI開發網站術語 - 專業網頁設計">
+    <meta name="twitter:description" content="AI開發網站術語總整理，包含前端、後端、UI/UX設計等專業術語和AI指令模板，幫助開發者快速掌握現代網頁技術">
+    <meta name="twitter:image" content="https://sky770825.github.io/Aibot888/images/twitter-image.jpg">
+    <meta name="twitter:creator" content="@sky770825">
+    <meta name="twitter:site" content="@sky770825">
+    
+    <!-- ===========================================
+         頁面標題與SEO優化
+         =========================================== -->
+    <title>AI開發網站術語大全 | 前端後端UI/UX設計完整指南</title>
+    
+    <!-- 自動更新配置 -->
+    <meta name="app-version" content="3.1.0">
+    <!-- 遠端更新配置 -->
+    <script src="remote-client-config.js"></script>
+    
+    <!-- ===========================================
+         外部資源載入
+         =========================================== -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- ===========================================
+         效能優化 - Preload 關鍵資源
+         =========================================== -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- DNS 預解析 -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- ===========================================
+         PWA 支援
+         =========================================== -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="AI術語">
+    
+    <!-- ===========================================
+         網站圖標
+         =========================================== -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    
+    <!-- 結構化數據 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "AI 網站開發術語大全",
+        "description": "AI開發網站術語總整理，包含前端、後端、UI/UX設計等專業術語和AI指令模板，幫助開發者快速掌握現代網頁技術",
+        "url": "https://sky770825.github.io/Aibot888/",
+        "author": {
+            "@type": "Organization",
+            "name": "AI開發術語網站"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://sky770825.github.io/Aibot888/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- ===========================================
+         導航欄區塊 (Navigation Bar)
+         功能：主要導航、響應式選單、品牌標識
+         =========================================== -->
+    <nav class="navbar" role="navigation" aria-label="主要導航">
+        <div class="nav-container">
+            <!-- 品牌標識 -->
+            <div class="nav-logo">
+                <i class="fas fa-code" aria-hidden="true"></i>
+                <span>AI開發術語</span>
+            </div>
+            
+            <!-- 導航選單 -->
+            <ul class="nav-menu" role="menubar">
+                <li class="nav-item" role="none">
+                    <a href="#terminology" class="nav-link" role="menuitem">術語總覽</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#commands" class="nav-link" role="menuitem">AI指令</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#glossary" class="nav-link" role="menuitem">術語詞典</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#resources" class="nav-link" role="menuitem">學習資源</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#project-tools" class="nav-link" role="menuitem">專案工具</a>
+                </li>
+            </ul>
+            
+            <!-- 配色主題選擇器 -->
+            <div class="theme-selector">
+                <button id="themeToggle" class="theme-toggle" aria-label="切換明暗主題" title="切換明暗主題">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <div class="color-theme-dropdown">
+                    <button class="color-theme-btn" aria-label="配色主題選單" title="選擇配色主題">
+                        <i class="fas fa-palette" aria-hidden="true"></i>
+                    </button>
+                    <div class="color-theme-menu">
+                        <div class="theme-option" data-theme="golden" title="金色主題">
+                            <div class="theme-preview golden"></div>
+                            <span>金色主題</span>
+                        </div>
+                        <div class="theme-option" data-theme="earthy" title="自然大地調">
+                            <div class="theme-preview earthy"></div>
+                            <span>自然大地調</span>
+                        </div>
+                        <div class="theme-option" data-theme="warm" title="溫暖中性色">
+                            <div class="theme-preview warm"></div>
+                            <span>溫暖中性色</span>
+                        </div>
+                        <div class="theme-option" data-theme="clean" title="乾淨白色">
+                            <div class="theme-preview clean"></div>
+                            <span>乾淨白色</span>
+                        </div>
+                        <div class="theme-option" data-theme="soft" title="柔和夢幻色">
+                            <div class="theme-preview soft"></div>
+                            <span>柔和夢幻色</span>
+                        </div>
+                        <div class="theme-option" data-theme="accent" title="鮮亮點綴色">
+                            <div class="theme-preview accent"></div>
+                            <span>鮮亮點綴色</span>
+                        </div>
+                        <div class="theme-option" data-theme="futuristic" title="未來科技感">
+                            <div class="theme-preview futuristic"></div>
+                            <span>未來科技感</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 響應式選單按鈕 -->
+            <div class="hamburger" aria-label="開啟選單" role="button" tabindex="0">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===========================================
+         主要內容區域 (Main Content)
+         =========================================== -->
+    <!-- ===========================================
+         術語分類總覽區塊 (Terminology Overview Section)
+         功能：展示術語分類和統計信息
+         =========================================== -->
+    <main id="terminology" class="terminology" aria-labelledby="terminology-title" role="main">
+            <div class="container">
+                <h2 id="terminology-title" class="section-title">術語分類總覽</h2>
+                <div class="terminology-grid">
+                    <article class="terminology-card" data-category="frontend" role="article" aria-labelledby="frontend-title">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 id="frontend-title">前端開發</h3>
+                        <p>HTML、CSS、JavaScript 相關術語</p>
+                        <div class="term-count" aria-label="包含120個以上術語">120+ 術語</div>
+                    </article>
+                    <article class="terminology-card" data-category="backend" role="article" aria-labelledby="backend-title">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 id="backend-title">後端開發</h3>
+                        <p>API、資料庫、伺服器相關術語</p>
+                        <div class="term-count" aria-label="包含80個以上術語">80+ 術語</div>
+                    </article>
+                    <article class="terminology-card" data-category="design" role="article" aria-labelledby="design-title">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 id="design-title">UI/UX設計</h3>
+                        <p>使用者介面與體驗設計術語</p>
+                        <div class="term-count" aria-label="包含60個以上術語">60+ 術語</div>
+                    </article>
+                    <article class="terminology-card" data-category="performance" role="article" aria-labelledby="performance-title">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3 id="performance-title">效能優化</h3>
+                        <p>網站效能與優化相關術語</p>
+                        <div class="term-count" aria-label="包含40個以上術語">40+ 術語</div>
+                    </article>
+                    <article class="terminology-card" data-category="analytics" role="article" aria-labelledby="analytics-title">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 id="analytics-title">數據分析</h3>
+                        <p>網站分析與數據追蹤術語</p>
+                        <div class="term-count" aria-label="包含30個以上術語">30+ 術語</div>
+                    </article>
+                    <article class="terminology-card" data-category="deploy" role="article" aria-labelledby="deploy-title">
+                        <div class="card-icon" aria-hidden="true">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 id="deploy-title">部署維護</h3>
+                        <p>網站部署與維護相關術語</p>
+                        <div class="term-count" aria-label="包含50個以上術語">50+ 術語</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===========================================
+             AI指令區塊 (AI Commands Section)
+             功能：智能搜尋、指令分類、指令模板展示
+             =========================================== -->
+        <section id="commands" class="commands" aria-labelledby="commands-title">
+            <div class="container">
+                <h2 id="commands-title" class="section-title">AI開發指令</h2>
+                
+                <!-- ===========================================
+                     智能搜尋區塊 (Smart Search)
+                     功能：根據需求推薦適合的AI指令
+                     =========================================== -->
+                <div class="smart-search-container">
+                    <header class="search-header">
+                        <h3>智能指令搜尋</h3>
+                        <p>描述你的需求，系統會推薦最適合的AI指令</p>
+                    </header>
+                    <div class="smart-search-box">
+                        <label for="smartSearchInput" class="sr-only">輸入你的開發需求</label>
+                        <input type="text" 
+                               id="smartSearchInput" 
+                               placeholder="例如：我想建立一個響應式的登入表單..." 
+                               class="smart-search-input"
+                               aria-describedby="search-help">
+                        <button id="searchBtn" class="search-btn" aria-label="搜尋指令" type="button">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            搜尋指令
+                        </button>
+                        <button id="clearBtn" class="clear-btn" style="display: none;" aria-label="清除搜尋" type="button">
+                            <i class="fas fa-times" aria-hidden="true"></i>
+                            清除
+                        </button>
+                    </div>
+                    <div id="search-help" class="sr-only">輸入你的開發需求，系統會推薦最適合的AI指令</div>
+                    <div id="searchResults" class="search-results" role="region" aria-live="polite"></div>
+                    
+                    <!-- 搜尋歷史記錄 -->
+                    <div id="searchHistory" class="search-history" style="display: none;">
+                        <div class="history-header">
+                            <h4>搜尋歷史</h4>
+                            <button id="clearHistoryBtn" class="clear-history-btn" title="清除所有歷史記錄">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <div id="historyList" class="history-list"></div>
+                    </div>
+                </div>
+
+                <div class="commands-tabs">
+                    <button class="tab-btn active" data-tab="templates">行業範本</button>
+                    <button class="tab-btn" data-tab="frontend">前端開發</button>
+                    <button class="tab-btn" data-tab="backend">後端開發</button>
+                    <button class="tab-btn" data-tab="design">UI/UX設計</button>
+                    <button class="tab-btn" data-tab="performance">效能優化</button>
+                    <button class="tab-btn" data-tab="analytics">數據分析</button>
+                    <button class="tab-btn" data-tab="deploy">部署維護</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-panel active" id="templates">
+                        <div class="templates-intro">
+                            <h3>🎯 一鍵生成行業網站範本</h3>
+                            <p>選擇您的行業，複製指令直接給AI，快速生成完整網站！</p>
+                        </div>
+                        <div class="command-examples">
+                            <div class="command-card template-card">
+                                <div class="template-icon">💄</div>
+                                <h4>美業招募網站</h4>
+                                <p>職位發布、作品集展示、即時聊天、預約面試</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">作品集展示</span>
+                                    <span class="feature-tag">技能標籤</span>
+                                    <span class="feature-tag">地理位置</span>
+                                    <span class="feature-tag">社群分享</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="beauty">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="beauty-html">基本展示型</button>
+                                        <button class="copy-html-btn" data-template="beauty-rental-html">租賃預約型</button>
+                                        <button class="copy-html-btn" data-template="beauty-course-html">課程培訓型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">🏠</div>
+                                <h4>房仲個人網頁</h4>
+                                <p>物件展示、客戶見證、專業介紹、聯絡預約</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">物件搜尋</span>
+                                    <span class="feature-tag">實價登錄</span>
+                                    <span class="feature-tag">房貸試算</span>
+                                    <span class="feature-tag">看屋預約</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="real-estate">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="real-estate-html">基本展示型</button>
+                                        <button class="copy-html-btn" data-template="real-estate-rental-html">租賃管理型</button>
+                                        <button class="copy-html-btn" data-template="real-estate-investment-html">投資顧問型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">🍽️</div>
+                                <h4>餐飲業網站</h4>
+                                <p>菜單展示、線上訂位、外送整合、優惠活動</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">線上點餐</span>
+                                    <span class="feature-tag">訂位系統</span>
+                                    <span class="feature-tag">外送整合</span>
+                                    <span class="feature-tag">優惠券</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="restaurant">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="restaurant-html">基本展示型</button>
+                                        <button class="copy-html-btn" data-template="restaurant-delivery-html">外送訂餐型</button>
+                                        <button class="copy-html-btn" data-template="restaurant-catering-html">宴會外燴型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">💪</div>
+                                <h4>健身中心網站</h4>
+                                <p>課程預約、教練介紹、會員方案、器材展示</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">課程預約</span>
+                                    <span class="feature-tag">體測追蹤</span>
+                                    <span class="feature-tag">營養諮詢</span>
+                                    <span class="feature-tag">成果分享</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="fitness">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="fitness-html">基本展示型</button>
+                                        <button class="copy-html-btn" data-template="fitness-personal-html">個人教練型</button>
+                                        <button class="copy-html-btn" data-template="fitness-studio-html">工作室租賃型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">🛒</div>
+                                <h4>電商購物網站</h4>
+                                <p>商品展示、購物車、結帳付款、會員管理</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">購物車</span>
+                                    <span class="feature-tag">多種付款</span>
+                                    <span class="feature-tag">物流整合</span>
+                                    <span class="feature-tag">推薦系統</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="ecommerce">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="ecommerce-html">基本展示型</button>
+                                        <button class="copy-html-btn" data-template="ecommerce-marketplace-html">多賣家市集型</button>
+                                        <button class="copy-html-btn" data-template="ecommerce-subscription-html">訂閱制型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">📊</div>
+                                <h4>專案管理工具</h4>
+                                <p>任務追蹤、團隊協作、進度管理、時間統計</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">看板管理</span>
+                                    <span class="feature-tag">甘特圖</span>
+                                    <span class="feature-tag">團隊協作</span>
+                                    <span class="feature-tag">時間追蹤</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="project-management">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="project-management-html">基本管理型</button>
+                                        <button class="copy-html-btn" data-template="project-management-agile-html">敏捷開發型</button>
+                                        <button class="copy-html-btn" data-template="project-management-consulting-html">顧問服務型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">📝</div>
+                                <h4>個人筆記系統</h4>
+                                <p>知識管理、標籤分類、搜尋功能、雲端同步</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">Markdown編輯</span>
+                                    <span class="feature-tag">標籤系統</span>
+                                    <span class="feature-tag">全文搜尋</span>
+                                    <span class="feature-tag">雲端同步</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="note-taking">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="note-taking-html">基本筆記型</button>
+                                        <button class="copy-html-btn" data-template="note-taking-knowledge-html">知識管理型</button>
+                                        <button class="copy-html-btn" data-template="note-taking-collaborative-html">協作筆記型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">💰</div>
+                                <h4>個人理財工具</h4>
+                                <p>記帳管理、預算規劃、投資追蹤、財務報表</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">記帳功能</span>
+                                    <span class="feature-tag">預算規劃</span>
+                                    <span class="feature-tag">圖表分析</span>
+                                    <span class="feature-tag">投資追蹤</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="personal-finance">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="personal-finance-html">基本記帳型</button>
+                                        <button class="copy-html-btn" data-template="personal-finance-budget-html">預算規劃型</button>
+                                        <button class="copy-html-btn" data-template="personal-finance-investment-html">投資追蹤型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">📚</div>
+                                <h4>線上學習平台</h4>
+                                <p>課程管理、學習進度、測驗系統、證書頒發</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">課程播放</span>
+                                    <span class="feature-tag">進度追蹤</span>
+                                    <span class="feature-tag">測驗系統</span>
+                                    <span class="feature-tag">證書管理</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="online-learning">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="online-learning-html">基本課程型</button>
+                                        <button class="copy-html-btn" data-template="online-learning-interactive-html">互動學習型</button>
+                                        <button class="copy-html-btn" data-template="online-learning-certification-html">證照考試型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">🏥</div>
+                                <h4>醫療診所網站</h4>
+                                <p>線上掛號、醫師介紹、服務項目、健康資訊</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">線上掛號</span>
+                                    <span class="feature-tag">醫師排班</span>
+                                    <span class="feature-tag">健康資訊</span>
+                                    <span class="feature-tag">就診提醒</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="medical-clinic">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="medical-clinic-html">基本預約型</button>
+                                        <button class="copy-html-btn" data-template="medical-clinic-telemedicine-html">遠距醫療型</button>
+                                        <button class="copy-html-btn" data-template="medical-clinic-management-html">診所管理型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">🏠</div>
+                                <h4>社區管理系統</h4>
+                                <p>公告發布、維修申請、費用繳納、鄰里交流</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">公告系統</span>
+                                    <span class="feature-tag">維修申請</span>
+                                    <span class="feature-tag">費用管理</span>
+                                    <span class="feature-tag">鄰里交流</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="community-management">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="community-management-html">基本論壇型</button>
+                                        <button class="copy-html-btn" data-template="community-management-social-html">社交互動型</button>
+                                        <button class="copy-html-btn" data-template="community-management-moderator-html">管理員工具型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">🎯</div>
+                                <h4>目標追蹤工具</h4>
+                                <p>目標設定、進度追蹤、習慣養成、成就系統</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">目標設定</span>
+                                    <span class="feature-tag">進度追蹤</span>
+                                    <span class="feature-tag">習慣養成</span>
+                                    <span class="feature-tag">成就系統</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="goal-tracking">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="goal-tracking-html">基本追蹤型</button>
+                                        <button class="copy-html-btn" data-template="goal-tracking-habit-html">習慣養成型</button>
+                                        <button class="copy-html-btn" data-template="goal-tracking-team-html">團隊目標型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">📅</div>
+                                <h4>活動管理平台</h4>
+                                <p>活動發布、報名管理、票務系統、活動統計</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">活動發布</span>
+                                    <span class="feature-tag">線上報名</span>
+                                    <span class="feature-tag">票務管理</span>
+                                    <span class="feature-tag">數據統計</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="event-management">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="event-management-html">基本活動型</button>
+                                        <button class="copy-html-btn" data-template="event-management-ticketing-html">票務銷售型</button>
+                                        <button class="copy-html-btn" data-template="event-management-corporate-html">企業活動型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card">
+                                <div class="template-icon">👤</div>
+                                <h4>個人形象網站</h4>
+                                <p>個人品牌、作品集展示、專業介紹、聯絡方式</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">作品集</span>
+                                    <span class="feature-tag">個人簡介</span>
+                                    <span class="feature-tag">技能展示</span>
+                                    <span class="feature-tag">聯絡資訊</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="personal-brand">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="personal-brand-html">基本展示型</button>
+                                        <button class="copy-html-btn" data-template="personal-brand-portfolio-html">作品集型</button>
+                                        <button class="copy-html-btn" data-template="personal-brand-consultant-html">顧問服務型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="command-card template-card">
+                                <div class="template-icon">🎨</div>
+                                <h4>2025年設計示範</h4>
+                                <p>現代化設計、玻璃質感、漸層背景、響應式佈局</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">玻璃質感</span>
+                                    <span class="feature-tag">漸層背景</span>
+                                    <span class="feature-tag">響應式設計</span>
+                                    <span class="feature-tag">深色模式</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" data-template="2025-design-demo">AI生成指令</button>
+                                    <div class="html-options">
+                                        <button class="copy-html-btn" data-template="2025-design-demo-html">完整示範型</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="command-card template-card feature-combiner-card">
+                                <div class="template-icon">🎛️</div>
+                                <h4>自訂功能組合器</h4>
+                                <p>勾選您需要的功能，自動生成客製化指令！</p>
+                                <div class="template-features">
+                                    <span class="feature-tag">客製化</span>
+                                    <span class="feature-tag">彈性組合</span>
+                                    <span class="feature-tag">一鍵生成</span>
+                                    <span class="feature-tag">無限可能</span>
+                                </div>
+                                <div class="template-actions">
+                                    <button class="copy-template-btn" id="openFeatureCombiner">開啟組合器</button>
+                                    <button class="copy-html-btn" data-template="custom-html">HTML方案</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="template-usage">
+                            <h4>📋 使用方式</h4>
+                            <ol>
+                                <li>點擊上方「複製指令」按鈕</li>
+                                <li>將指令貼到 ChatGPT、Claude 等 AI 工具</li>
+                                <li>AI 會根據指令生成完整的網站程式碼</li>
+                                <li>按照生成的指南進行部署</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="frontend">
+                        <div class="command-examples">
+                            <div class="command-card">
+                                <h4>元件開發</h4>
+                                <div class="command-code">
+                                    <code>請幫我建立一個 [元件名稱] 元件：<br>
+                                    - 功能：[具體功能描述]<br>
+                                    - 樣式：[設計風格要求]<br>
+                                    - 響應式：[斷點設定]</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>狀態管理</h4>
+                                <div class="command-code">
+                                    <code>請幫我設計狀態管理方案：<br>
+                                    - 全域狀態：[需要共享的資料]<br>
+                                    - 本地狀態：[元件內部狀態]<br>
+                                    - 非同步處理：[API 呼叫邏輯]</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>資料擷取</h4>
+                                <div class="command-code">
+                                    <code>請使用 Async/Await 處理資料擷取：<br>
+                                    - 在頁面載入時執行 API Call<br>
+                                    - 確保資料載入完成後才渲染<br>
+                                    - 添加錯誤處理和載入狀態</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>互動元件</h4>
+                                <div class="command-code">
+                                    <code>請建立 Tooltip 提示框：<br>
+                                    - 在圖示旁加上功能說明<br>
+                                    - 支援滑鼠懸停顯示<br>
+                                    - 自適應位置和樣式</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="backend">
+                        <div class="command-examples">
+                            <div class="command-card">
+                                <h4>API設計</h4>
+                                <div class="command-code">
+                                    <code>請設計 RESTful API：<br>
+                                    - 資源：[資料實體列表]<br>
+                                    - 端點：[CRUD 操作]<br>
+                                    - 請求格式：[JSON Schema]</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>身份驗證</h4>
+                                <div class="command-code">
+                                    <code>請實作身份驗證系統：<br>
+                                    - 註冊流程：[使用者註冊邏輯]<br>
+                                    - 登入驗證：[JWT/OAuth 實作]<br>
+                                    - 權限控制：[角色權限管理]</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="design">
+                        <div class="command-examples">
+                            <div class="command-card">
+                                <h4>設計系統</h4>
+                                <div class="command-code">
+                                    <code>請建立設計系統：<br>
+                                    - 色彩規範：[主色、輔色、中性色]<br>
+                                    - 字體系統：[字體大小、行高]<br>
+                                    - 間距規範：[padding、margin 標準]</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>響應式設計</h4>
+                                <div class="command-code">
+                                    <code>請設定響應式斷點：<br>
+                                    - 行動裝置：[320px-768px]<br>
+                                    - 平板：[768px-1024px]<br>
+                                    - 桌面：[1024px+]</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>進階互動元件</h4>
+                                <div class="command-code">
+                                    <code>請建立 Modal 彈出式視窗：<br>
+                                    - 當使用者點擊『訂閱』時顯示<br>
+                                    - 包含電子郵件輸入表單<br>
+                                    - 支援背景遮蔽和關閉功能</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>動畫效果</h4>
+                                <div class="command-code">
+                                    <code>請使用 CSS Keyframes 製作動畫：<br>
+                                    - 為網站 Logo 製作旋轉動畫<br>
+                                    - 按鈕懸停時的平滑變色效果<br>
+                                    - 頁面載入時的淡入動畫</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="performance">
+                        <div class="command-examples">
+                            <div class="command-card">
+                                <h4>載入優化</h4>
+                                <div class="command-code">
+                                    <code>請優化網站載入速度：<br>
+                                    - 程式碼分割：[lazy loading]<br>
+                                    - 圖片優化：[WebP、壓縮]<br>
+                                    - 快取策略：[browser cache]<br>
+                                    - CDN 設定：[內容分發網路]</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>執行效能</h4>
+                                <div class="command-code">
+                                    <code>請優化執行效能：<br>
+                                    - 虛擬化：[大量資料渲染]<br>
+                                    - 防抖動：[debounce/throttle]<br>
+                                    - 記憶化：[memoization]<br>
+                                    - 非同步處理：[async/await]</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>SEO 優化</h4>
+                                <div class="command-code">
+                                    <code>請優化 SEO：<br>
+                                    - 標題標籤：[title、meta 標籤]<br>
+                                    - 結構化資料：[Schema.org]<br>
+                                    - 網站地圖：[sitemap.xml]<br>
+                                    - 內部連結：[連結結構]</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="analytics">
+                        <div class="command-examples">
+                            <div class="command-card">
+                                <h4>使用者旅程分析</h4>
+                                <div class="command-code">
+                                    <code>請根據我們的使用者旅程，設計一個簡潔的結帳流程：<br>
+                                    - 減少中途放棄的機率<br>
+                                    - 優化每個步驟的使用者體驗<br>
+                                    - 添加進度指示器</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>熱力圖分析</h4>
+                                <div class="command-code">
+                                    <code>請分析首頁的熱力圖，優化點擊率較低的按鈕：<br>
+                                    - 重新設計按鈕位置和樣式<br>
+                                    - 改善視覺層級和對比度<br>
+                                    - 測試不同的按鈕文案</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>A/B 測試</h4>
+                                <div class="command-code">
+                                    <code>請對首頁的 CTA 按鈕進行 A/B 測試：<br>
+                                    - 比較紅色和藍色按鈕的點擊率<br>
+                                    - 測試不同的按鈕文案<br>
+                                    - 分析轉換率差異</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>分析整合</h4>
+                                <div class="command-code">
+                                    <code>請為網站的所有頁面加上分析整合：<br>
+                                    - 追蹤訪客來源和停留時間<br>
+                                    - 設定轉換目標和事件追蹤<br>
+                                    - 建立使用者行為報表</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="deploy">
+                        <div class="command-examples">
+                            <div class="command-card">
+                                <h4>部署策略</h4>
+                                <div class="command-code">
+                                    <code>請設計部署方案：<br>
+                                    - 環境配置：[開發/測試/生產]<br>
+                                    - 容器化：[Docker 配置]<br>
+                                    - CI/CD：[自動化部署]</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>效能優化</h4>
+                                <div class="command-code">
+                                    <code>請優化網站載入速度：<br>
+                                    - 程式碼分割：[lazy loading]<br>
+                                    - 圖片優化：[WebP、壓縮]<br>
+                                    - 快取策略：[browser cache]</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>新技術整合</h4>
+                                <div class="command-code">
+                                    <code>請使用 Headless CMS 和 GraphQL：<br>
+                                    - 讓後端人員獨立管理內容<br>
+                                    - 前端使用 React 呈現內容<br>
+                                    - 優化資料查詢效率</code>
+                                </div>
+                            </div>
+                            <div class="command-card">
+                                <h4>無伺服器架構</h4>
+                                <div class="command-code">
+                                    <code>請將圖片處理功能部署在無伺服器架構：<br>
+                                    - 應對高流量時的負載<br>
+                                    - 自動擴展和縮減資源<br>
+                                    - 降低營運成本</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===========================================
+             設計優化指令區塊 (Design Optimization Commands Section)
+             功能：2025年現代化設計優化指令
+             =========================================== -->
+        <section id="design-commands" class="design-commands" aria-labelledby="design-commands-title">
+            <div class="container">
+                <h2 id="design-commands-title" class="section-title">🎨 設計優化指令</h2>
+                <div class="commands-content">
+                    <div class="command-category">
+                        <h3>🧭 導航欄革新</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">全屏玻璃質感選單</span>
+                                <span class="command-desc">採用毛玻璃效果和漸變背景</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">流暢動畫</span>
+                                <span class="command-desc">選單項目依次從下方滑入</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">現代化按鈕</span>
+                                <span class="command-desc">圓角設計，懸停效果和光澤動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">優雅過渡</span>
+                                <span class="command-desc">使用cubic-bezier緩動函數</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🌈 Hero區塊重設計</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">動態漸變背景</span>
+                                <span class="command-desc">多色彩漸變，自動循環動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">玻璃質感元素</span>
+                                <span class="command-desc">統計卡片和展示項目採用毛玻璃效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">現代化排版</span>
+                                <span class="command-desc">漸變文字效果和陰影層次</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">微交互設計</span>
+                                <span class="command-desc">懸停時的縮放和移動效果</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>💳 卡片設計革新</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">新擬態設計</span>
+                                <span class="command-desc">採用Neumorphism風格，立體陰影效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">圓角趨勢</span>
+                                <span class="command-desc">24px圓角，符合2025年設計趨勢</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">漸變裝飾</span>
+                                <span class="command-desc">卡片頂部彩色漸變條</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">光澤動畫</span>
+                                <span class="command-desc">卡片內部的shimmer效果</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🔘 按鈕和互動優化</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">立體按鈕</span>
+                                <span class="command-desc">新擬態風格的按鈕設計</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">光澤掃過效果</span>
+                                <span class="command-desc">懸停時的光澤動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">流暢過渡</span>
+                                <span class="command-desc">所有互動都有平滑的動畫效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">觸控友好</span>
+                                <span class="command-desc">適合手機觸控的按鈕尺寸</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🎨 色彩和字體層次</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">現代化配色</span>
+                                <span class="command-desc">採用2025年流行的漸變色彩</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">字體層次</span>
+                                <span class="command-desc">清晰的字體大小和權重層次</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">漸變文字</span>
+                                <span class="command-desc">標題使用漸變色彩效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">陰影系統</span>
+                                <span class="command-desc">多層次陰影營造深度感</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>✨ 動畫效果系統</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">漸變背景動畫</span>
+                                <span class="command-desc">Hero區塊的動態漸變</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">標題發光效果</span>
+                                <span class="command-desc">文字的光暈動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">浮動動畫</span>
+                                <span class="command-desc">徽章的上下浮動效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">光澤掃過</span>
+                                <span class="command-desc">按鈕和卡片的shimmer效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">彈跳動畫</span>
+                                <span class="command-desc">互動元素的彈跳效果</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>📐 內容設計優化</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">大間距設計</span>
+                                <span class="command-desc">增加所有元素間的呼吸空間</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">不對稱間距</span>
+                                <span class="command-desc">打破傳統對稱，創造視覺層次</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">動態間距</span>
+                                <span class="command-desc">根據內容重要性調整間距</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">容器內邊距優化</span>
+                                <span class="command-desc">從 var(--spacing-md) 增加到 var(--spacing-lg)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">卡片內邊距優化</span>
+                                <span class="command-desc">從 var(--spacing-xl) 增加到 var(--spacing-xxl)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🔤 字體大小層次</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">區塊標題</span>
+                                <span class="command-desc">2.5rem (更大更醒目)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">卡片標題</span>
+                                <span class="command-desc">1.5rem (增強視覺層次)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">表單標題</span>
+                                <span class="command-desc">1.6rem (突出重要性)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">段落文字</span>
+                                <span class="command-desc">1.1rem (提升可讀性)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">功能列表</span>
+                                <span class="command-desc">1rem (清晰易讀)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">按鈕文字</span>
+                                <span class="command-desc">1.1rem (觸控友好)</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">字體權重</span>
+                                <span class="command-desc">使用 700-900 的粗體權重</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">字母間距</span>
+                                <span class="command-desc">添加 letter-spacing 優化可讀性</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>📱 欄寬和佈局</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">流動式佈局</span>
+                                <span class="command-desc">充分利用手機螢幕寬度</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">統一內邊距</span>
+                                <span class="command-desc">所有區塊使用 var(--spacing-lg) 內邊距</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">響應式間距</span>
+                                <span class="command-desc">根據螢幕尺寸動態調整</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">內容最大寬度</span>
+                                <span class="command-desc">優化閱讀體驗</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>👁️ 視覺層次和可讀性</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">行高優化</span>
+                                <span class="command-desc">使用 1.6-1.7 的行高提升可讀性</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">字體層次</span>
+                                <span class="command-desc">清晰的標題、副標題、內容層次</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">間距系統</span>
+                                <span class="command-desc">統一的間距變數系統</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">視覺呼吸空間</span>
+                                <span class="command-desc">增加元素間的空隙</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🚀 2025年設計趨勢特色</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">玻璃質感（Glassmorphism）</span>
+                                <span class="command-desc">毛玻璃效果和透明度</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">新擬態設計（Neumorphism）</span>
+                                <span class="command-desc">立體陰影和柔和的視覺效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">動態漸變</span>
+                                <span class="command-desc">多色彩漸變背景和動畫</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">微交互設計</span>
+                                <span class="command-desc">細膩的動畫和過渡效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">圓角設計</span>
+                                <span class="command-desc">大圓角符合現代審美</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">立體陰影</span>
+                                <span class="command-desc">多層次陰影營造深度感</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">大間距設計</span>
+                                <span class="command-desc">更多呼吸空間，減少視覺壓迫感</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">現代化字體比例</span>
+                                <span class="command-desc">使用 1.25-1.333 的黃金比例</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">粗體字體權重</span>
+                                <span class="command-desc">700-900 的粗體增強視覺衝擊</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">流動式佈局</span>
+                                <span class="command-desc">充分利用螢幕空間</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">觸控友好設計</span>
+                                <span class="command-desc">按鈕和輸入框適合手指操作</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">視覺層次清晰</span>
+                                <span class="command-desc">通過字體大小和間距創造層次</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>📱 手機版優化重點</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">更大的觸控目標</span>
+                                <span class="command-desc">按鈕和互動元素尺寸優化</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">清晰的視覺層次</span>
+                                <span class="command-desc">通過字體大小和間距引導視線</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">舒適的閱讀體驗</span>
+                                <span class="command-desc">優化的行高和字體大小</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">現代化間距</span>
+                                <span class="command-desc">符合2025年設計趨勢的大間距</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="command-category">
+                        <h3>🎨 2025 HTML 設計示範模板</h3>
+                        <div class="command-list">
+                            <div class="command-item">
+                                <span class="command-title">現代化設計範例</span>
+                                <span class="command-desc">大間距・流動式・玻璃擬態・漸層背景</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">響應式導航列</span>
+                                <span class="command-desc">手機/桌機自適應，玻璃質感效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">Hero 區塊設計</span>
+                                <span class="command-desc">全螢幕背景、漸層遮罩、CTA按鈕</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">卡片懸停效果</span>
+                                <span class="command-desc">3D變換、陰影動畫、微交互設計</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">圖片展示區</span>
+                                <span class="command-desc">網格佈局、懸停縮放、圓角設計</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">Masonry 流式排版</span>
+                                <span class="command-desc">手機專用瀑布流佈局</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">Glassmorphism 效果</span>
+                                <span class="command-desc">半透明毛玻璃、背景模糊</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">Skeleton Loading</span>
+                                <span class="command-desc">載入動畫、shimmer效果</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">深色模式支援</span>
+                                <span class="command-desc">自動適配系統主題偏好</span>
+                            </div>
+                            <div class="command-item">
+                                <span class="command-title">動效系統</span>
+                                <span class="command-desc">淡入動畫、流暢過渡效果</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===========================================
+             術語詞典區塊 (Glossary Section)
+             功能：術語搜尋、詳細說明、範例展示
+             =========================================== -->
+        <section id="glossary" class="glossary" aria-labelledby="glossary-title">
+            <div class="container">
+                <h2 id="glossary-title" class="section-title">術語詞典</h2>
+                <div class="search-container">
+                    <label for="searchInput" class="sr-only">搜尋術語</label>
+                    <input type="text" 
+                           id="searchInput" 
+                           placeholder="搜尋術語..." 
+                           class="search-input"
+                           aria-describedby="glossary-help">
+                    <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                </div>
+                <div class="glossary-grid" id="glossaryGrid" role="grid" aria-label="術語列表">
+                    <!-- 術語項目將由 JavaScript 動態生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===========================================
+             學習資源區塊 (Resources Section)
+             功能：技術文檔、開發工具、社群交流連結
+             =========================================== -->
+        <section id="resources" class="resources" aria-labelledby="resources-title">
+            <div class="container">
+                <h2 id="resources-title" class="section-title">學習資源</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <i class="fas fa-book"></i>
+                        <h3>技術文檔</h3>
+                        <p>最新的前端技術文檔和最佳實踐</p>
+                        <a href="#" class="resource-link">查看文檔</a>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-tools"></i>
+                        <h3>開發工具</h3>
+                        <p>推薦的開發工具和IDE配置</p>
+                        <a href="#" class="resource-link">查看工具</a>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-users"></i>
+                        <h3>社群交流</h3>
+                        <p>與其他開發者交流經驗和技巧</p>
+                        <a href="#" class="resource-link">加入社群</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===========================================
+             術語詞典區塊 (Glossary Section)
+             功能：術語搜尋、詳細說明、範例展示
+             =========================================== -->
+        <section id="glossary" class="glossary" aria-labelledby="glossary-title">
+            <div class="container">
+                <h2 id="glossary-title" class="section-title">術語詞典</h2>
+                <div class="search-container">
+                    <label for="searchInput" class="sr-only">搜尋術語</label>
+                    <input type="text" 
+                           id="searchInput" 
+                           placeholder="搜尋術語..." 
+                           class="search-input"
+                           aria-describedby="glossary-help">
+                    <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                </div>
+                <div class="glossary-grid" id="glossaryGrid" role="grid" aria-label="術語列表">
+                    <!-- 術語項目將由 JavaScript 動態生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===========================================
+             AI專案管理工具區塊 (AI Project Management Tools)
+             功能：專案分析、指令生成、版面優化、手機版檢查
+             =========================================== -->
+        <section id="project-tools" class="project-tools" aria-labelledby="project-tools-title">
+            <div class="container">
+                <h2 id="project-tools-title" class="section-title">🤖 AI專案管理工具</h2>
+                <p class="section-subtitle">一鍵生成完整的專案說明和AI指令，讓AI幫您自動優化專案</p>
+                
+                <!-- 專案分析工具 -->
+                <div class="tool-section">
+                    <h3 class="tool-title">
+                        <i class="fas fa-search-plus"></i>
+                        專案架構分析器
+                    </h3>
+                    <div class="tool-content">
+                        <div class="analysis-input">
+                            <label for="projectPath">專案路徑或網址：</label>
+                            <input type="text" id="projectPath" placeholder="例如：/path/to/project 或 https://github.com/user/repo 或 https://example.com" />
+                            <button id="analyzeProject" class="analyze-btn">
+                                <i class="fas fa-analytics"></i>
+                                分析專案結構
+                            </button>
+                        </div>
+                        <div id="analysisResults" class="analysis-results" style="display: none;">
+                            <div class="results-header">
+                                <h4>📊 專案分析結果</h4>
+                                <div class="results-actions">
+                                    <button id="copyAnalysis" class="copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                        複製分析報告
+                                    </button>
+                                    <button id="generateProjectSolution" class="solution-btn" style="display: none;">
+                                        <i class="fas fa-magic"></i>
+                                        一鍵生成解決方案
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="analysisContent" class="analysis-content"></div>
+                            
+                            <div id="projectSolutionPanel" class="solution-panel" style="display: none;">
+                                <div class="solution-header">
+                                    <h5>🚀 專案優化解決方案</h5>
+                                    <button id="copyProjectSolution" class="copy-solution-btn">
+                                        <i class="fas fa-copy"></i>
+                                        複製解決方案
+                                    </button>
+                                </div>
+                                <div id="projectSolutionContent" class="solution-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI指令生成器 -->
+                <div class="tool-section">
+                    <h3 class="tool-title">
+                        <i class="fas fa-magic"></i>
+                        AI指令生成器
+                    </h3>
+                    <div class="tool-content">
+                        <div class="command-generator">
+                            <div class="generator-settings">
+                                <div class="setting-row horizontal">
+                                    <label>專案類型：</label>
+                                    <select id="projectType">
+                                        <option value="website">網站專案</option>
+                                        <option value="webapp">網頁應用</option>
+                                        <option value="landing">落地頁</option>
+                                        <option value="portfolio">作品集</option>
+                                        <option value="ecommerce">電商網站</option>
+                                        <option value="blog">部落格</option>
+                                    </select>
+                                </div>
+                                <div class="setting-row horizontal">
+                                    <label>主要技術：</label>
+                                    <select id="mainTech">
+                                        <option value="html-css-js">HTML/CSS/JS</option>
+                                        <option value="react">React</option>
+                                        <option value="vue">Vue.js</option>
+                                        <option value="angular">Angular</option>
+                                        <option value="wordpress">WordPress</option>
+                                        <option value="nextjs">Next.js</option>
+                                    </select>
+                                </div>
+                                <div class="setting-row">
+                                    <label>優化需求：</label>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox" value="responsive" checked> 響應式設計</label>
+                                        <label><input type="checkbox" value="performance" checked> 效能優化</label>
+                                        <label><input type="checkbox" value="seo" checked> SEO優化</label>
+                                        <label><input type="checkbox" value="accessibility" checked> 無障礙設計</label>
+                                        <label><input type="checkbox" value="mobile"> 手機版優化</label>
+                                        <label><input type="checkbox" value="layout"> 版面調整</label>
+                                    </div>
+                                </div>
+                                <div class="setting-row">
+                                    <label>特殊需求：</label>
+                                    <textarea id="specialRequirements" placeholder="請描述任何特殊需求或問題..."></textarea>
+                                </div>
+                            </div>
+                            <button id="generateCommand" class="generate-btn">
+                                <i class="fas fa-wand-magic-sparkles"></i>
+                                生成AI指令
+                            </button>
+                        </div>
+                        <div id="generatedCommand" class="generated-command" style="display: none;">
+                            <div class="command-header">
+                                <h4>🎯 生成的AI指令</h4>
+                                <button id="copyCommand" class="copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                    複製指令
+                                </button>
+                            </div>
+                            <div id="commandContent" class="command-content"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 版面優化檢測器 -->
+                <div class="tool-section">
+                    <h3 class="tool-title">
+                        <i class="fas fa-ruler-combined"></i>
+                        版面優化檢測器
+                    </h3>
+                    <div class="tool-content">
+                        <div class="optimization-checker">
+                            <div class="checker-input">
+                                <label>檢查範圍：</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" value="overlap" checked> 元素重疊檢測</label>
+                                    <label><input type="checkbox" value="spacing" checked> 間距分析</label>
+                                    <label><input type="checkbox" value="alignment" checked> 對齊檢查</label>
+                                    <label><input type="checkbox" value="sizing" checked> 尺寸合理性</label>
+                                    <label><input type="checkbox" value="mobile-layout" checked> 手機版版面</label>
+                                    <label><input type="checkbox" value="typography" checked> 字體排版</label>
+                                </div>
+                            </div>
+                            <button id="checkLayout" class="check-btn">
+                                <i class="fas fa-search"></i>
+                                開始檢測
+                            </button>
+                        </div>
+                        <div id="layoutResults" class="layout-results" style="display: none;">
+                            <div class="results-header">
+                                <h4>🔍 版面檢測結果</h4>
+                                <div class="results-actions">
+                                    <span id="issueCount" class="issue-count">發現 0 個問題</span>
+                                    <button id="generateSolution" class="solution-btn" style="display: none;">
+                                        <i class="fas fa-magic"></i>
+                                        一鍵生成解決方案
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="layoutIssues" class="layout-issues"></div>
+                            <div id="solutionPanel" class="solution-panel" style="display: none;">
+                                <div class="solution-header">
+                                    <h5>💡 一鍵解決方案</h5>
+                                    <button id="copySolution" class="copy-solution-btn">
+                                        <i class="fas fa-copy"></i>
+                                        複製解決方案
+                                    </button>
+                                </div>
+                                <div id="solutionContent" class="solution-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 手機版適配檢查器 -->
+                <div class="tool-section">
+                    <h3 class="tool-title">
+                        <i class="fas fa-mobile-alt"></i>
+                        手機版適配檢查器
+                    </h3>
+                    <div class="tool-content">
+                        <div class="mobile-checker">
+                            <div class="device-selector">
+                                <label>選擇測試裝置：</label>
+                                <div class="device-categories">
+                                    <!-- iPhone 系列 -->
+                                    <div class="device-category">
+                                        <h4>🍎 iPhone 系列</h4>
+                                        <div class="device-buttons">
+                                            <button class="device-btn" data-device="iphone-se" data-width="375" data-height="667">iPhone SE (375×667)</button>
+                                            <button class="device-btn" data-device="iphone-12" data-width="390" data-height="844">iPhone 12/13 (390×844)</button>
+                                            <button class="device-btn" data-device="iphone-12-pro" data-width="390" data-height="844">iPhone 12/13 Pro (390×844)</button>
+                                            <button class="device-btn" data-device="iphone-12-pro-max" data-width="428" data-height="926">iPhone 12/13 Pro Max (428×926)</button>
+                                            <button class="device-btn" data-device="iphone-14-plus" data-width="428" data-height="926">iPhone 14 Plus (428×926)</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Android 系列 -->
+                                    <div class="device-category">
+                                        <h4>🤖 Android 系列</h4>
+                                        <div class="device-buttons">
+                                            <button class="device-btn" data-device="android-small" data-width="360" data-height="640">小尺寸 Android (360×640)</button>
+                                            <button class="device-btn" data-device="android-medium" data-width="414" data-height="896">中尺寸 Android (414×896)</button>
+                                            <button class="device-btn" data-device="android-large" data-width="480" data-height="854">大尺寸 Android (480×854)</button>
+                                            <button class="device-btn" data-device="samsung-galaxy" data-width="412" data-height="915">Samsung Galaxy (412×915)</button>
+                                            <button class="device-btn" data-device="pixel" data-width="393" data-height="851">Google Pixel (393×851)</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 平板系列 -->
+                                    <div class="device-category">
+                                        <h4>📱 平板系列</h4>
+                                        <div class="device-buttons">
+                                            <button class="device-btn" data-device="ipad" data-width="768" data-height="1024">iPad (768×1024)</button>
+                                            <button class="device-btn" data-device="ipad-pro-11" data-width="834" data-height="1194">iPad Pro 11" (834×1194)</button>
+                                            <button class="device-btn" data-device="ipad-pro-12-9" data-width="1024" data-height="1366">iPad Pro 12.9" (1024×1366)</button>
+                                            <button class="device-btn" data-device="ipad-air" data-width="820" data-height="1180">iPad Air (820×1180)</button>
+                                            <button class="device-btn" data-device="ipad-mini" data-width="744" data-height="1133">iPad mini (744×1133)</button>
+                                            <button class="device-btn" data-device="android-tablet" data-width="800" data-height="1280">Android 平板 (800×1280)</button>
+                                            <button class="device-btn" data-device="surface-pro" data-width="912" data-height="1368">Surface Pro (912×1368)</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 自訂尺寸 -->
+                                    <div class="device-category">
+                                        <h4>⚙️ 自訂尺寸</h4>
+                                        <div class="custom-device">
+                                            <div class="custom-input-group">
+                                                <label>寬度 (px):</label>
+                                                <input type="number" id="customWidth" placeholder="375" min="320" max="1920">
+                                            </div>
+                                            <div class="custom-input-group">
+                                                <label>高度 (px):</label>
+                                                <input type="number" id="customHeight" placeholder="667" min="568" max="1080">
+                                            </div>
+                                            <button class="device-btn custom-btn" id="customDeviceBtn">
+                                                <i class="fas fa-cog"></i>
+                                                使用自訂尺寸
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="check-options">
+                                <label>檢測選項：</label>
+                                <div class="option-checkboxes">
+                                    <label><input type="checkbox" value="layout" checked> 版面布局</label>
+                                    <label><input type="checkbox" value="typography" checked> 字體排版</label>
+                                    <label><input type="checkbox" value="touch" checked> 觸控操作</label>
+                                    <label><input type="checkbox" value="performance" checked> 載入效能</label>
+                                    <label><input type="checkbox" value="accessibility" checked> 無障礙設計</label>
+                                </div>
+                            </div>
+                            
+                            <div class="check-buttons">
+                                <button id="checkMobile" class="check-btn">
+                                    <i class="fas fa-search"></i>
+                                    開始檢測
+                                </button>
+                                <button id="autoDetectOrientation" class="check-btn secondary">
+                                    <i class="fas fa-sync-alt"></i>
+                                    自動檢測方向
+                                </button>
+                            </div>
+                        </div>
+                        
+                    <div id="mobileResults" class="mobile-results" style="display: none;">
+                        <div class="results-header">
+                            <h4>📱 手機版檢測結果</h4>
+                            <div class="results-actions">
+                                <div class="device-info">
+                                    <span id="currentDevice">未選擇裝置</span>
+                                    <span id="currentResolution">-</span>
+                                    <span id="orientationIndicator" class="orientation-indicator">-</span>
+                                </div>
+                                <button id="generateMobileSolution" class="solution-btn" style="display: none;">
+                                    <i class="fas fa-magic"></i>
+                                    一鍵生成解決方案
+                                </button>
+                            </div>
+                        </div>
+                            
+                            <div class="responsive-score">
+                                <div class="score-item">
+                                    <span>整體評分：</span>
+                                    <div class="score-bar">
+                                        <div id="responsiveScore" class="score-fill"></div>
+                                    </div>
+                                    <span id="scoreText">0/100</span>
+                                </div>
+                                <div class="score-breakdown">
+                                    <div class="score-detail">
+                                        <span>版面布局：</span>
+                                        <span id="layoutScore">-</span>
+                                    </div>
+                                    <div class="score-detail">
+                                        <span>字體排版：</span>
+                                        <span id="typographyScore">-</span>
+                                    </div>
+                                    <div class="score-detail">
+                                        <span>觸控操作：</span>
+                                        <span id="touchScore">-</span>
+                                    </div>
+                                    <div class="score-detail">
+                                        <span>載入效能：</span>
+                                        <span id="performanceScore">-</span>
+                                    </div>
+                                    <div class="score-detail">
+                                        <span>無障礙設計：</span>
+                                        <span id="accessibilityScore">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="mobileIssues" class="mobile-issues"></div>
+                            
+                        <div class="recommendations">
+                            <h5>💡 優化建議</h5>
+                            <div id="mobileRecommendations" class="recommendations-list"></div>
+                        </div>
+                        
+                        <div id="mobileSolutionPanel" class="solution-panel" style="display: none;">
+                            <div class="solution-header">
+                                <h5>📱 手機版優化解決方案</h5>
+                                <button id="copyMobileSolution" class="copy-solution-btn">
+                                    <i class="fas fa-copy"></i>
+                                    複製解決方案
+                                </button>
+                            </div>
+                            <div id="mobileSolutionContent" class="solution-content"></div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 功能組合器模態框 -->
+    <div id="featureCombinerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎛️ 自訂功能組合器</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="project-settings">
+                    <h3>⚙️ 專案設定</h3>
+                    <div class="setting-row">
+                        <label>專案名稱：</label>
+                        <input type="text" id="projectName" placeholder="請輸入專案名稱" value="我的網站專案">
+                    </div>
+                    <div class="setting-row">
+                        <label>目標用戶：</label>
+                        <select id="targetUsers">
+                            <option value="一般用戶">一般用戶</option>
+                            <option value="企業客戶">企業客戶</option>
+                            <option value="個人用戶">個人用戶</option>
+                            <option value="學生群體">學生群體</option>
+                            <option value="專業人士">專業人士</option>
+                            <option value="小型企業">小型企業</option>
+                            <option value="中大型企業">中大型企業</option>
+                            <option value="電商賣家">電商賣家</option>
+                            <option value="內容創作者">內容創作者</option>
+                            <option value="教育機構">教育機構</option>
+                            <option value="醫療機構">醫療機構</option>
+                            <option value="非營利組織">非營利組織</option>
+                            <option value="政府機關">政府機關</option>
+                            <option value="其他">其他（請在下方輸入）</option>
+                        </select>
+                    </div>
+                    <div class="setting-row" id="customTargetUsers" style="display: none;">
+                        <label>自訂目標用戶：</label>
+                        <input type="text" id="customTargetUsersInput" placeholder="請輸入您的目標用戶群體">
+                    </div>
+                    <div class="setting-row">
+                        <label>設計風格：</label>
+                        <select id="designStyle">
+                            <option value="modern">現代簡約</option>
+                            <option value="professional">專業商務</option>
+                            <option value="creative">創意活潑</option>
+                            <option value="elegant">優雅精緻</option>
+                            <option value="minimal">極簡主義</option>
+                        </select>
+                    </div>
+                    <div class="setting-row">
+                        <label>主要配色：</label>
+                        <select id="colorScheme">
+                            <option value="blue-white">藍色+白色</option>
+                            <option value="green-blue">綠色+藍色</option>
+                            <option value="purple-pink">紫色+粉色</option>
+                            <option value="orange-red">橙色+紅色</option>
+                            <option value="gray-black">灰色+黑色</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="combiner-intro">
+                    <p>設定好專案後，勾選您需要的功能，系統會自動生成客製化的AI指令！</p>
+                    <div class="star-legend">
+                        <h4>⭐ 功能推薦度評分</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-stars" data-rating="5">★★★★★</span>
+                                <span class="legend-text">必用功能</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-stars" data-rating="4">★★★★☆</span>
+                                <span class="legend-text">常用功能</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-stars" data-rating="3">★★★☆☆</span>
+                                <span class="legend-text">一般功能</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-stars" data-rating="2">★★☆☆☆</span>
+                                <span class="legend-text">少用功能</span>
+                            </div>
+                        </div>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">全部</button>
+                            <button class="filter-btn" data-filter="5">必用功能</button>
+                            <button class="filter-btn" data-filter="4">常用功能</button>
+                            <button class="filter-btn" data-filter="3">一般功能</button>
+                            <button class="sort-btn" id="toggleSort">
+                                <span class="sort-icon">🔽</span>
+                                <span class="sort-text">按星級排序</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-categories">
+                    <div class="category-section">
+                        <h3>🏢 基本功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="basic" data-feature="user-auth">
+                                <span class="checkmark"></span>
+                                <span class="feature-name">用戶註冊登入</span>
+                                <span class="feature-stars" data-rating="5">★★★★★</span>
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="basic" data-feature="user-profile">
+                                <span class="checkmark"></span>
+                                個人資料管理
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="basic" data-feature="search">
+                                <span class="checkmark"></span>
+                                搜尋功能
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="basic" data-feature="notifications">
+                                <span class="checkmark"></span>
+                                通知系統
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="basic" data-feature="file-upload">
+                                <span class="checkmark"></span>
+                                檔案上傳
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="basic" data-feature="email-system">
+                                <span class="checkmark"></span>
+                                郵件系統
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="basic" data-feature="calendar">
+                                <span class="checkmark"></span>
+                                日曆功能
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="basic" data-feature="bookmark">
+                                <span class="checkmark"></span>
+                                書籤收藏
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h3>💳 商業功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="business" data-feature="payment">
+                                <span class="checkmark"></span>
+                                線上付款
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="business" data-feature="inventory">
+                                <span class="checkmark"></span>
+                                庫存管理
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="business" data-feature="orders">
+                                <span class="checkmark"></span>
+                                訂單管理
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="business" data-feature="catalog">
+                                <span class="checkmark"></span>
+                                商品目錄
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="business" data-feature="subscription">
+                                <span class="checkmark"></span>
+                                訂閱服務
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="business" data-feature="coupons">
+                                <span class="checkmark"></span>
+                                優惠券系統
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="business" data-feature="affiliate">
+                                <span class="checkmark"></span>
+                                聯盟行銷
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="business" data-feature="loyalty">
+                                <span class="checkmark"></span>
+                                會員積點
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h3>📱 互動功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="interaction" data-feature="chat">
+                                <span class="checkmark"></span>
+                                即時聊天
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="interaction" data-feature="comments">
+                                <span class="checkmark"></span>
+                                評論系統
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="interaction" data-feature="reviews">
+                                <span class="checkmark"></span>
+                                評價系統
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="interaction" data-feature="social">
+                                <span class="checkmark"></span>
+                                社群分享
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="interaction" data-feature="forum">
+                                <span class="checkmark"></span>
+                                討論區
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="interaction" data-feature="live-stream">
+                                <span class="checkmark"></span>
+                                直播功能
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="interaction" data-feature="poll">
+                                <span class="checkmark"></span>
+                                投票系統
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="interaction" data-feature="gamification">
+                                <span class="checkmark"></span>
+                                遊戲化元素
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h3>📊 分析功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="analytics" data-feature="dashboard">
+                                <span class="checkmark"></span>
+                                數據儀表板
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="analytics" data-feature="reports">
+                                <span class="checkmark"></span>
+                                報表生成
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="analytics" data-feature="tracking">
+                                <span class="checkmark"></span>
+                                行為追蹤
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="analytics" data-feature="charts">
+                                <span class="checkmark"></span>
+                                圖表視覺化
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="analytics" data-feature="heatmap">
+                                <span class="checkmark"></span>
+                                熱力圖分析
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="analytics" data-feature="ab-testing">
+                                <span class="checkmark"></span>
+                                A/B測試
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="analytics" data-feature="conversion">
+                                <span class="checkmark"></span>
+                                轉換追蹤
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="analytics" data-feature="funnel">
+                                <span class="checkmark"></span>
+                                漏斗分析
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h3>🔧 管理功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="management" data-feature="admin">
+                                <span class="checkmark"></span>
+                                管理後台
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="management" data-feature="permissions">
+                                <span class="checkmark"></span>
+                                權限管理
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="management" data-feature="logs">
+                                <span class="checkmark"></span>
+                                操作日誌
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="management" data-feature="backup">
+                                <span class="checkmark"></span>
+                                資料備份
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="management" data-feature="cms">
+                                <span class="checkmark"></span>
+                                內容管理
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="management" data-feature="workflow">
+                                <span class="checkmark"></span>
+                                工作流程
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="management" data-feature="api-management">
+                                <span class="checkmark"></span>
+                                API管理
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="management" data-feature="monitoring">
+                                <span class="checkmark"></span>
+                                系統監控
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h3>🎨 內容功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="content" data-feature="blog">
+                                <span class="checkmark"></span>
+                                部落格系統
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="content" data-feature="cms">
+                                <span class="checkmark"></span>
+                                內容管理
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="content" data-feature="media-gallery">
+                                <span class="checkmark"></span>
+                                媒體庫
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="content" data-feature="video-player">
+                                <span class="checkmark"></span>
+                                影片播放器
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="content" data-feature="image-editor">
+                                <span class="checkmark"></span>
+                                圖片編輯器
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="content" data-feature="document-viewer">
+                                <span class="checkmark"></span>
+                                文件檢視器
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="content" data-feature="rss-feed">
+                                <span class="checkmark"></span>
+                                RSS訂閱
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="content" data-feature="seo-tools">
+                                <span class="checkmark"></span>
+                                SEO工具
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h3>🔐 安全功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="security" data-feature="two-factor">
+                                <span class="checkmark"></span>
+                                雙重驗證
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="security" data-feature="encryption">
+                                <span class="checkmark"></span>
+                                資料加密
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="security" data-feature="captcha">
+                                <span class="checkmark"></span>
+                                驗證碼
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="security" data-feature="rate-limiting">
+                                <span class="checkmark"></span>
+                                速率限制
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="security" data-feature="audit-trail">
+                                <span class="checkmark"></span>
+                                審計追蹤
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="security" data-feature="firewall">
+                                <span class="checkmark"></span>
+                                防火牆
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="security" data-feature="vulnerability">
+                                <span class="checkmark"></span>
+                                漏洞掃描
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="security" data-feature="compliance">
+                                <span class="checkmark"></span>
+                                合規檢查
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h3>🌐 整合功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="integration" data-feature="social-login">
+                                <span class="checkmark"></span>
+                                社群登入
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="integration" data-feature="payment-gateway">
+                                <span class="checkmark"></span>
+                                金流整合
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="integration" data-feature="map-service">
+                                <span class="checkmark"></span>
+                                地圖服務
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="integration" data-feature="sms-service">
+                                <span class="checkmark"></span>
+                                簡訊服務
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="integration" data-feature="cloud-storage">
+                                <span class="checkmark"></span>
+                                雲端儲存
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="integration" data-feature="ai-service">
+                                <span class="checkmark"></span>
+                                AI服務
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="integration" data-feature="webhook">
+                                <span class="checkmark"></span>
+                                Webhook
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="integration" data-feature="api-gateway">
+                                <span class="checkmark"></span>
+                                API閘道
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h3>🤖 AI LLM功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-chatbot">
+                                <span class="checkmark"></span>
+                                AI聊天機器人
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-content-generation">
+                                <span class="checkmark"></span>
+                                AI內容生成
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-translation">
+                                <span class="checkmark"></span>
+                                AI翻譯服務
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-image-generation">
+                                <span class="checkmark"></span>
+                                AI圖像生成
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-voice-assistant">
+                                <span class="checkmark"></span>
+                                AI語音助手
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-code-assistant">
+                                <span class="checkmark"></span>
+                                AI程式碼助手
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-data-analysis">
+                                <span class="checkmark"></span>
+                                AI數據分析
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-personalization">
+                                <span class="checkmark"></span>
+                                AI個人化
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-automation">
+                                <span class="checkmark"></span>
+                                AI自動化
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="ai" data-feature="ai-search">
+                                <span class="checkmark"></span>
+                                AI智能搜索
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h3>📱 行動功能</h3>
+                        <div class="feature-options">
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="mobile" data-feature="pwa">
+                                <span class="checkmark"></span>
+                                PWA支援
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="mobile" data-feature="push-notification">
+                                <span class="checkmark"></span>
+                                推播通知
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="mobile" data-feature="offline-mode">
+                                <span class="checkmark"></span>
+                                離線模式
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="mobile" data-feature="geolocation">
+                                <span class="checkmark"></span>
+                                地理位置
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="mobile" data-feature="camera">
+                                <span class="checkmark"></span>
+                                相機功能
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="mobile" data-feature="qr-scanner">
+                                <span class="checkmark"></span>
+                                QR掃描
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="mobile" data-feature="touch-gestures">
+                                <span class="checkmark"></span>
+                                手勢操作
+                            </label>
+                            <label class="feature-option">
+                                <input type="checkbox" data-category="mobile" data-feature="device-sync">
+                                <span class="checkmark"></span>
+                                裝置同步
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="generated-command">
+                    <h3>📝 生成的指令預覽</h3>
+                    <div class="command-preview" id="commandPreview">
+                        請先選擇功能...
+                    </div>
+                    <button class="copy-generated-btn" id="copyGeneratedCommand" disabled>複製生成的指令</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===========================================
+         頁尾區塊 (Footer)
+         功能：網站資訊、快速連結、社群媒體、版權聲明
+         =========================================== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>AI開發術語</h4>
+                    <p>專業的網頁開發術語和AI指令整理，幫助開發者快速掌握現代網頁技術</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速連結</h4>
+                    <ul role="list">
+                        <li><a href="#terminology">術語總覽</a></li>
+                        <li><a href="#commands">AI指令</a></li>
+                        <li><a href="#glossary">術語詞典</a></li>
+                        <li><a href="#resources">學習資源</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>技術支援</h4>
+                    <ul role="list">
+                        <li><a href="#" target="_blank" rel="noopener">使用指南</a></li>
+                        <li><a href="#" target="_blank" rel="noopener">常見問題</a></li>
+                        <li><a href="#" target="_blank" rel="noopener">回報問題</a></li>
+                        <li><a href="#" target="_blank" rel="noopener">功能建議</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>聯絡我們</h4>
+                    <div class="social-links" role="list">
+                        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="mailto:contact@example.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 AI開發術語網站. 保留所有權利.</p>
+                    <div class="footer-legal">
+                        <a href="#" target="_blank" rel="noopener">隱私政策</a>
+                        <span class="separator">|</span>
+                        <a href="#" target="_blank" rel="noopener">使用條款</a>
+                        <span class="separator">|</span>
+                        <a href="#" target="_blank" rel="noopener">Cookie 政策</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===========================================
+         回到頂部按鈕 (Back to Top Button)
+         =========================================== -->
+    <button id="backToTop" class="back-to-top" aria-label="回到頂部" title="回到頂部">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- ===========================================
+         無障礙設計 - 螢幕閱讀器專用元素
+         =========================================== -->
+    <div class="sr-only" id="search-help">輸入關鍵字搜尋相關術語</div>
+    <div class="sr-only" id="glossary-help">輸入術語名稱或描述進行搜尋</div>
+
+    <!-- ===========================================
+         JavaScript 載入
+         注意：使用 defer 屬性確保 DOM 載入完成後執行
+         =========================================== -->
+    <script src="script.js" defer></script>
+    <script src="project-tools-fixed.js" defer></script>
+    
+    <!-- 自動更新器 -->
+    <script src="client-updater.js" defer></script>
+    <script defer>
+        // 初始化自動更新器
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.AutoUpdater) {
+                window.autoUpdater = new window.AutoUpdater(window.AUTO_UPDATE_CONFIG);
+                
+                // 監聽更新事件
+                window.autoUpdater.onUpdate(function(event, data) {
+                    console.log('更新事件:', event, data);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

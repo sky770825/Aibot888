@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI開發網站術語大全 - 優化版
+</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preload" href="modules/core.js" as="script">
+<link rel="preload" href="modules/search.js" as="script">
+<link rel="preload" href="modules/project-analyzer.js" as="script">
+<style> /* 關鍵渲染路徑 CSS */ body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; } .loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 9999; } .nav-container { background: #2c3e50; color: white; padding: 1rem; } .main-content { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+</style>
+
+</head>
+<body>
+<div id="loading" class="loading">
+<div style="text-align: center; margin-top: 50vh; transform: translateY(-50%);">
+<p>載入中...
+</p>
+
+</div>
+
+</div>
+<nav class="nav-container">
+<div class="nav-content">
+<h1>AI開發網站術語大全
+</h1>
+<div class="nav-actions">
+<button id="themeToggle" class="btn">🌙
+</button>
+<button id="openFeatureCombiner" class="btn">🔧 功能組合器
+</button>
+
+</div>
+
+</div>
+
+</nav>
+<main class="main-content">
+<section class="search-section">
+<div class="search-container">
+<input type="text" id="smartSearchInput" placeholder="搜尋 AI 指令..." class="search-input">
+<button id="searchBtn" class="search-btn">🔍
+</button>
+<button id="clearBtn" class="clear-btn">✕
+</button>
+
+</div>
+
+</section>
+<section class="project-analyzer">
+<h2>📊 專案架構分析器
+</h2>
+<div class="analysis-input">
+<div class="input-tabs">
+<button class="tab-btn active" data-tab="path">路徑分析
+</button>
+<button class="tab-btn" data-tab="upload">檔案上傳
+</button>
+
+</div>
+<div class="tab-content active" id="path-tab">
+<label for="projectPath">專案路徑或網址：
+</label>
+<input type="text" id="projectPath" placeholder="例如：/path/to/project 或 https://github.com/user/repo">
+<button id="analyzeProject" class="analyze-btn">分析專案結構
+</button>
+
+</div>
+<div class="tab-content" id="upload-tab">
+<label for="projectFiles">上傳專案檔案：
+</label>
+<div class="file-upload-area" id="fileUploadArea">
+<div class="upload-content">
+<p class="upload-text">拖拽檔案到這裡或點擊選擇檔案
+</p>
+
+</div>
+<input type="file" id="projectFiles" multiple accept=".html,.css,.js,.json,.md,.txt,.xml,.php,.py,.java,.cpp,.c,.h,.hpp,.cs,.rb,.go,.rs,.ts,.jsx,.tsx,.vue,.svelte">
+
+</div>
+<button id="analyzeUploadedFiles" class="analyze-btn">分析上傳檔案
+</button>
+
+</div>
+
+</div>
+<div id="analysisResults" class="analysis-results" style="display: none;">
+<div class="results-header">
+<h4>📊 專案分析結果
+</h4>
+<div class="results-actions">
+<button id="copyAnalysis" class="copy-btn">複製分析報告
+</button>
+<div class="export-dropdown">
+<button id="exportBtn" class="export-btn">匯出結果
+</button>
+<div class="export-menu" id="exportMenu">
+<button class="export-option" data-format="pdf">匯出為 PDF
+</button>
+<button class="export-option" data-format="json">匯出為 JSON
+</button>
+<button class="export-option" data-format="markdown">匯出為 Markdown
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="glossary-section">
+<h2>📚 術語詞典
+</h2>
+
+</section>
+
+</main>
+<div id="featureCombinerModal" class="modal">
+<div class="modal-content">
+<span class="close">&times;
+</span>
+<h2>🔧 功能組合器
+</h2>
+<button id="copyGeneratedCommand" class="btn">複製指令
+</button>
+
+</div>
+
+</div>
+<button id="backToTop" class="back-to-top">↑
+</button>
+<script> // 等待 DOM 載入完成 document.addEventListener('DOMContentLoaded', function() { // 隱藏載入指示器 const loading = document.getElementById('loading'); if (loading) { loading.style.display = 'none'; } // 初始化核心功能 if (window.Core) { console.log('核心模組載入成功'); } if (window.searchManager) { console.log('搜尋模組載入成功'); } if (window.projectAnalyzer) { console.log('專案分析器載入成功'); } // 初始化主題切換 const themeToggle = document.getElementById('themeToggle'); if (themeToggle) { themeToggle.addEventListener('click', function() { const currentTheme = document.documentElement.getAttribute('data-theme'); const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', newTheme); localStorage.setItem('theme', newTheme); this.textContent = newTheme === 'dark' ? '☀️' : '🌙'; }); } // 初始化返回頂部按鈕 const backToTopBtn = document.getElementById('backToTop'); if (backToTopBtn) { window.addEventListener('scroll', function() { if (window.pageYOffset > 300) { backToTopBtn.classList.add('show'); } else { backToTopBtn.classList.remove('show'); } }); backToTopBtn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); }); } });
+</script>
+<style> @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } .back-to-top { position: fixed; bottom: 20px; right: 20px; background: #3498db; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 1000; } .back-to-top.show { opacity: 1; visibility: visible; } .back-to-top:hover { background: #2980b9; transform: translateY(-2px); }
+</style>
+
+</body>
+
+</html>

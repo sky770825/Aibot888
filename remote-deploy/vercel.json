@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "remote-update-server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "remote-update-server.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}

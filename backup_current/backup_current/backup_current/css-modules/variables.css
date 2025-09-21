@@ -1,0 +1,46 @@
+/* ===========================================
+   CSS 變數模組 (CSS Variables Module)
+   功能：定義全域 CSS 變數和配色方案
+   =========================================== */
+
+/* CSS 變數定義 - 預設金色主題配色 */
+:root {
+    --primary-color: #daa520;        /* 主要金色 */
+    --secondary-color: #2c3e50;      /* 深藍色導航 */
+    --accent-color: #ffd700;         /* 亮金色強調 */
+    --text-color: #333;              /* 深灰色文字 */
+    --text-light: #666;              /* 淺灰色文字 */
+    --bg-color: #ffffff;             /* 純白背景 */
+    --card-bg: #ffffff;              /* 卡片白色背景 */
+    --border-color: #e9ecef;         /* 淺灰色邊框 */
+    --shadow: rgba(218, 165, 32, 0.15);  /* 金色陰影 */
+    --shadow-hover: rgba(218, 165, 32, 0.25);  /* 金色懸停陰影 */
+    --gradient-gold: linear-gradient(135deg, #daa520 0%, #ffd700 50%, #ffffff 100%);  /* 金色漸層 */
+    --gradient-blue: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);  /* 深藍漸層 */
+    
+    /* 字體變數 */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-size-base: 16px;
+    --font-size-sm: 14px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    
+    /* 間距變數 */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    /* 圓角變數 */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    
+    /* 動畫變數 */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}

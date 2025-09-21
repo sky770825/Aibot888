@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 CryptoMonitor - 虛擬貨幣市場監控平台</title>
+    
+    <!-- 外部資源 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        /* ===========================================
+           CSS 變數定義
+           =========================================== */
+        :root {
+            --primary-color: #00d4aa;
+            --secondary-color: #1e3a8a;
+            --accent-color: #f59e0b;
+            --danger-color: #ef4444;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --bg-card: #1e293b;
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            
+            --border-color: #334155;
+            --border-light: #475569;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+            
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --border-radius-xl: 16px;
+        }
+
+        /* ===========================================
+           重置和基本樣式
+           =========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===========================================
+           導航欄
+           =========================================== */
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: var(--spacing-md) 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-xl);
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-tertiary);
+        }
+
+        /* ===========================================
+           主要內容
+           =========================================== */
+        .main-content {
+            margin-top: 80px;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* ===========================================
+           Hero 區塊
+           =========================================== */
+        .hero {
+            text-align: center;
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            border-radius: var(--border-radius-xl);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ===========================================
+           價格監控區塊
+           =========================================== */
+        .price-monitor {
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .crypto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .crypto-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .crypto-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+
+        .crypto-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .crypto-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .crypto-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .crypto-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .crypto-symbol {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .crypto-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .price-change {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 0.9rem;
+        }
+
+        .price-change.positive {
+            color: var(--success-color);
+        }
+
+        .price-change.negative {
+            color: var(--danger-color);
+        }
+
+        .price-change i {
+            font-size: 0.8rem;
+        }
+
+        .crypto-chart {
+            height: 100px;
+            margin-top: var(--spacing-md);
+            position: relative;
+        }
+
+        /* ===========================================
+           市場分析區塊
+           =========================================== */
+        .market-analysis {
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xl);
+        }
+
+        .chart-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+
+        .market-stats {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .stat-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .stat-item-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-item-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ===========================================
+           投資組合區塊
+           =========================================== */
+        .portfolio {
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+        }
+
+        .portfolio-summary {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+        }
+
+        .portfolio-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .portfolio-change {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .portfolio-holdings {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+        }
+
+        .holding-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .holding-item:last-child {
+            border-bottom: none;
+        }
+
+        .holding-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .holding-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .holding-details h4 {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .holding-details p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .holding-value {
+            text-align: right;
+        }
+
+        .holding-amount {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .holding-change {
+            font-size: 0.9rem;
+        }
+
+        /* ===========================================
+           響應式設計
+           =========================================== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .crypto-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===========================================
+           動畫效果
+           =========================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* ===========================================
+           載入動畫
+           =========================================== */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-color);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ===========================================
+           工具提示
+           =========================================== */
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                CryptoMonitor
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#dashboard" class="nav-link">儀表板</a></li>
+                <li><a href="#markets" class="nav-link">市場</a></li>
+                <li><a href="#portfolio" class="nav-link">投資組合</a></li>
+                <li><a href="#analysis" class="nav-link">分析</a></li>
+                <li><a href="#news" class="nav-link">新聞</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero 區塊 -->
+            <section class="hero fade-in-up">
+                <h1>虛擬貨幣市場監控</h1>
+                <p>實時追蹤市場動態，掌握投資先機，專業的加密貨幣分析平台</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalMarketCap">$2.1T</div>
+                        <div class="stat-label">總市值</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalVolume">$89.2B</div>
+                        <div class="stat-label">24小時交易量</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="activeCoins">8,945</div>
+                        <div class="stat-label">活躍幣種</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="marketChange">+2.34%</div>
+                        <div class="stat-label">24小時變化</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 價格監控區塊 -->
+            <section class="price-monitor" id="markets">
+                <h2 class="section-title">熱門幣種價格</h2>
+                <div class="crypto-grid" id="cryptoGrid">
+                    <!-- 動態生成 -->
+                </div>
+            </section>
+
+            <!-- 市場分析區塊 -->
+            <section class="market-analysis" id="analysis">
+                <h2 class="section-title">市場分析</h2>
+                <div class="analysis-grid">
+                    <div class="chart-container">
+                        <h3 class="chart-title">BTC/USD 價格走勢</h3>
+                        <canvas id="priceChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="market-stats">
+                        <div class="stat-item">
+                            <div class="stat-item-value" id="fearGreedIndex">45</div>
+                            <div class="stat-item-label">恐慌貪婪指數</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item-value" id="dominance">42.5%</div>
+                            <div class="stat-item-label">BTC 主導地位</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item-value" id="volatility">高</div>
+                            <div class="stat-item-label">市場波動性</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 投資組合區塊 -->
+            <section class="portfolio" id="portfolio">
+                <h2 class="section-title">我的投資組合</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-summary">
+                        <h3>總價值</h3>
+                        <div class="portfolio-value" id="portfolioValue">$12,450.00</div>
+                        <div class="portfolio-change positive" id="portfolioChange">+$1,234.50 (+11.02%)</div>
+                        <div class="portfolio-chart">
+                            <canvas id="portfolioChart" width="300" height="150"></canvas>
+                        </div>
+                    </div>
+                    <div class="portfolio-holdings">
+                        <h3>持倉明細</h3>
+                        <div class="holding-item">
+                            <div class="holding-info">
+                                <div class="holding-icon">₿</div>
+                                <div class="holding-details">
+                                    <h4>Bitcoin</h4>
+                                    <p>0.25 BTC</p>
+                                </div>
+                            </div>
+                            <div class="holding-value">
+                                <div class="holding-amount">$8,750.00</div>
+                                <div class="holding-change positive">+5.2%</div>
+                            </div>
+                        </div>
+                        <div class="holding-item">
+                            <div class="holding-info">
+                                <div class="holding-icon">Ξ</div>
+                                <div class="holding-details">
+                                    <h4>Ethereum</h4>
+                                    <p>2.1 ETH</p>
+                                </div>
+                            </div>
+                            <div class="holding-value">
+                                <div class="holding-amount">$3,150.00</div>
+                                <div class="holding-change positive">+8.7%</div>
+                            </div>
+                        </div>
+                        <div class="holding-item">
+                            <div class="holding-info">
+                                <div class="holding-icon">₳</div>
+                                <div class="holding-details">
+                                    <h4>Cardano</h4>
+                                    <p>1,500 ADA</p>
+                                </div>
+                            </div>
+                            <div class="holding-value">
+                                <div class="holding-amount">$550.00</div>
+                                <div class="holding-change negative">-2.1%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // ===========================================
+        // 全局變數和配置
+        // ===========================================
+        const API_BASE_URL = 'https://api.coingecko.com/api/v3';
+        const REFRESH_INTERVAL = 30000; // 30秒刷新一次
+        
+        let priceChart = null;
+        let portfolioChart = null;
+        let refreshInterval = null;
+
+        // 模擬數據
+        const cryptoData = [
+            { symbol: 'BTC', name: 'Bitcoin', price: 35000, change: 2.34, icon: '₿' },
+            { symbol: 'ETH', name: 'Ethereum', price: 2100, change: -1.23, icon: 'Ξ' },
+            { symbol: 'BNB', name: 'Binance Coin', price: 320, change: 4.56, icon: 'B' },
+            { symbol: 'ADA', name: 'Cardano', price: 0.37, change: -0.89, icon: '₳' },
+            { symbol: 'SOL', name: 'Solana', price: 95, change: 7.12, icon: '◎' },
+            { symbol: 'DOT', name: 'Polkadot', price: 6.8, change: 1.45, icon: '●' }
+        ];
+
+        // ===========================================
+        // 初始化函數
+        // ===========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 CryptoMonitor 初始化開始...');
+            
+            initializeTheme();
+            initializeCharts();
+            loadCryptoData();
+            startRealTimeUpdates();
+            
+            console.log('✅ CryptoMonitor 初始化完成');
+        });
+
+        // ===========================================
+        // 主題切換
+        // ===========================================
+        function initializeTheme() {
+            const themeToggle = document.getElementById('themeToggle');
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                // 更新按鈕圖標
+                const icon = themeToggle.querySelector('i');
+                icon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+            });
+        }
+
+        // ===========================================
+        // 載入加密貨幣數據
+        // ===========================================
+        function loadCryptoData() {
+            const cryptoGrid = document.getElementById('cryptoGrid');
+            cryptoGrid.innerHTML = '';
+
+            cryptoData.forEach(crypto => {
+                const cryptoCard = createCryptoCard(crypto);
+                cryptoGrid.appendChild(cryptoCard);
+            });
+        }
+
+        function createCryptoCard(crypto) {
+            const card = document.createElement('div');
+            card.className = 'crypto-card fade-in-up';
+            
+            const changeClass = crypto.change >= 0 ? 'positive' : 'negative';
+            const changeIcon = crypto.change >= 0 ? 'fa-arrow-up' : 'fa-arrow-down';
+            
+            card.innerHTML = `
+                <div class="crypto-header">
+                    <div class="crypto-info">
+                        <div class="crypto-icon">${crypto.icon}</div>
+                        <div>
+                            <div class="crypto-name">${crypto.name}</div>
+                            <div class="crypto-symbol">${crypto.symbol}</div>
+                        </div>
+                    </div>
+                    <div class="price-change ${changeClass}">
+                        <i class="fas ${changeIcon}"></i>
+                        ${Math.abs(crypto.change)}%
+                    </div>
+                </div>
+                <div class="crypto-price">$${crypto.price.toLocaleString()}</div>
+                <div class="crypto-chart">
+                    <canvas id="chart-${crypto.symbol}" width="200" height="60"></canvas>
+                </div>
+            `;
+            
+            // 為每個幣種創建小型圖表
+            setTimeout(() => {
+                createMiniChart(`chart-${crypto.symbol}`, crypto.symbol);
+            }, 100);
+            
+            return card;
+        }
+
+        // ===========================================
+        // 圖表初始化
+        // ===========================================
+        function initializeCharts() {
+            // 主要價格圖表
+            const priceCtx = document.getElementById('priceChart').getContext('2d');
+            priceChart = new Chart(priceCtx, {
+                type: 'line',
+                data: {
+                    labels: generateTimeLabels(24),
+                    datasets: [{
+                        label: 'BTC/USD',
+                        data: generatePriceData(24, 35000),
+                        borderColor: '#00d4aa',
+                        backgroundColor: 'rgba(0, 212, 170, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: false
+                        },
+                        y: {
+                            display: false
+                        }
+                    },
+                    elements: {
+                        point: {
+                            radius: 0
+                        }
+                    }
+                }
+            });
+
+            // 投資組合圖表
+            const portfolioCtx = document.getElementById('portfolioChart').getContext('2d');
+            portfolioChart = new Chart(portfolioCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Bitcoin', 'Ethereum', 'Cardano', 'Others'],
+                    datasets: [{
+                        data: [70, 25, 4, 1],
+                        backgroundColor: [
+                            '#00d4aa',
+                            '#f59e0b',
+                            '#ef4444',
+                            '#6b7280'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#cbd5e1',
+                                padding: 20
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createMiniChart(canvasId, symbol) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: generateTimeLabels(12),
+                    datasets: [{
+                        data: generatePriceData(12, cryptoData.find(c => c.symbol === symbol)?.price || 100),
+                        borderColor: '#00d4aa',
+                        backgroundColor: 'rgba(0, 212, 170, 0.1)',
+                        borderWidth: 1,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false }
+                    },
+                    elements: {
+                        point: { radius: 0 }
+                    }
+                }
+            });
+        }
+
+        // ===========================================
+        // 數據生成函數
+        // ===========================================
+        function generateTimeLabels(hours) {
+            const labels = [];
+            const now = new Date();
+            for (let i = hours; i >= 0; i--) {
+                const time = new Date(now.getTime() - i * 60 * 60 * 1000);
+                labels.push(time.getHours() + ':' + time.getMinutes().toString().padStart(2, '0'));
+            }
+            return labels;
+        }
+
+        function generatePriceData(hours, basePrice) {
+            const data = [];
+            let currentPrice = basePrice;
+            
+            for (let i = 0; i <= hours; i++) {
+                const change = (Math.random() - 0.5) * 0.02; // ±1% 變化
+                currentPrice *= (1 + change);
+                data.push(currentPrice);
+            }
+            
+            return data;
+        }
+
+        // ===========================================
+        // 實時更新
+        // ===========================================
+        function startRealTimeUpdates() {
+            // 更新市場數據
+            updateMarketData();
+            
+            // 設置定時刷新
+            refreshInterval = setInterval(() => {
+                updateMarketData();
+                updateCryptoPrices();
+            }, REFRESH_INTERVAL);
+        }
+
+        function updateMarketData() {
+            // 模擬實時數據更新
+            const marketCap = document.getElementById('totalMarketCap');
+            const volume = document.getElementById('totalVolume');
+            const change = document.getElementById('marketChange');
+            
+            if (marketCap) {
+                const currentCap = parseFloat(marketCap.textContent.replace('$', '').replace('T', ''));
+                const newCap = (currentCap + (Math.random() - 0.5) * 0.1).toFixed(1);
+                marketCap.textContent = `$${newCap}T`;
+            }
+            
+            if (volume) {
+                const currentVol = parseFloat(volume.textContent.replace('$', '').replace('B', ''));
+                const newVol = (currentVol + (Math.random() - 0.5) * 5).toFixed(1);
+                volume.textContent = `$${newVol}B`;
+            }
+            
+            if (change) {
+                const currentChange = parseFloat(change.textContent.replace('+', '').replace('%', ''));
+                const newChange = (currentChange + (Math.random() - 0.5) * 2).toFixed(2);
+                const sign = newChange >= 0 ? '+' : '';
+                change.textContent = `${sign}${newChange}%`;
+                change.className = `stat-value ${newChange >= 0 ? 'positive' : 'negative'}`;
+            }
+        }
+
+        function updateCryptoPrices() {
+            cryptoData.forEach(crypto => {
+                // 模擬價格變化
+                const change = (Math.random() - 0.5) * 0.05; // ±2.5% 變化
+                crypto.price *= (1 + change);
+                crypto.change = (Math.random() - 0.5) * 10; // ±5% 變化
+                
+                // 更新頁面顯示
+                const priceElement = document.querySelector(`[data-symbol="${crypto.symbol}"] .crypto-price`);
+                const changeElement = document.querySelector(`[data-symbol="${crypto.symbol}"] .price-change`);
+                
+                if (priceElement) {
+                    priceElement.textContent = `$${crypto.price.toLocaleString()}`;
+                }
+                
+                if (changeElement) {
+                    const changeClass = crypto.change >= 0 ? 'positive' : 'negative';
+                    const changeIcon = crypto.change >= 0 ? 'fa-arrow-up' : 'fa-arrow-down';
+                    changeElement.className = `price-change ${changeClass}`;
+                    changeElement.innerHTML = `<i class="fas ${changeIcon}"></i> ${Math.abs(crypto.change).toFixed(2)}%`;
+                }
+            });
+        }
+
+        // ===========================================
+        // 工具函數
+        // ===========================================
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(amount);
+        }
+
+        function formatPercentage(value) {
+            return `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`;
+        }
+
+        // ===========================================
+        // 錯誤處理
+        // ===========================================
+        window.addEventListener('error', function(e) {
+            console.error('❌ 發生錯誤:', e.error);
+        });
+
+        // ===========================================
+        // 頁面卸載清理
+        // ===========================================
+        window.addEventListener('beforeunload', function() {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+            }
+        });
+
+        console.log('💰 CryptoMonitor 腳本載入完成');
+    </script>
+</body>
+</html>
